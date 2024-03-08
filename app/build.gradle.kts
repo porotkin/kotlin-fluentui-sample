@@ -27,7 +27,7 @@ kotlin {
                 implementation(kotlinw("emotion"))
                 implementation(kotlinw("tanstack-react-query"))
                 implementation(kotlinw("tanstack-react-table"))
-//                implementation(kotlinxCoroutines("core"))
+//                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
             }
         }
     }
