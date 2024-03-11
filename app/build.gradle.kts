@@ -1,34 +1,15 @@
 plugins {
-    kotlin("multiplatform")
+    id("io.github.turansky.kfc.application")
+    id("io.github.turansky.kfc.wrappers")
 }
 
-fun kotlinw(target: String): String =
-    "org.jetbrains.kotlin-wrappers:kotlin-$target"
+val coroutinesVersion = project.property("kotlinx-coroutines.version") as String
 
-kotlin {
-    js {
-        useEsModules()
-        browser {
-            commonWebpackConfig {
-                outputFileName = "index.js"
-            }
-        }
-        binaries.executable()
-    }
-
-    sourceSets {
-        val jsMain by getting {
-            val wrappersVersion = extra["kotlin.wrappers.version"]
-
-            dependencies {
-                implementation(project.dependencies.enforcedPlatform(kotlinw("wrappers-bom:$wrappersVersion")))
-                implementation(kotlinw("react"))
-                implementation(kotlinw("react-dom"))
-                implementation(kotlinw("emotion"))
-                implementation(kotlinw("tanstack-react-query"))
-                implementation(kotlinw("tanstack-react-table"))
-//                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
-            }
-        }
-    }
+dependencies {
+    jsMainImplementation(wrappers("react"))
+    jsMainImplementation(wrappers("react-dom"))
+    jsMainImplementation(wrappers("emotion"))
+    jsMainImplementation(wrappers("tanstack-react-query"))
+    jsMainImplementation(wrappers("tanstack-react-table"))
+    jsMainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutinesVersion")
 }
