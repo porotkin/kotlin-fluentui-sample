@@ -8,6 +8,8 @@ val coroutinesVersion = project.property("kotlinx-coroutines.version") as String
 dependencies {
     jsMainImplementation(wrappers("react"))
     jsMainImplementation(wrappers("react-dom"))
+    jsMainImplementation(wrappers("react-router"))
+    jsMainImplementation(wrappers("react-router-dom"))
     jsMainImplementation(wrappers("emotion"))
     jsMainImplementation(wrappers("tanstack-react-query"))
     jsMainImplementation(wrappers("tanstack-react-table"))
