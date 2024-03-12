@@ -12,4 +12,7 @@ dependencies {
     jsMainImplementation(wrappers("tanstack-react-query"))
     jsMainImplementation(wrappers("tanstack-react-table"))
     jsMainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutinesVersion")
+
+    jsMainApi(npmv("@fluentui/react-components"))
+    jsMainApi(project(":kotlin-fluentui"))
 }

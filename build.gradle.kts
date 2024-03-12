@@ -3,23 +3,7 @@ plugins {
 }
 
 kotlin {
-    js {
-        useEsModules()
-        browser {
-            commonWebpackConfig {
-                outputFileName = "index.js"
-            }
-        }
-        binaries.executable()
-    }
-
-    sourceSets {
-        val jsMain by getting {
-            dependencies {
-                implementation(project("app"))
-            }
-        }
-    }
+    js().browser()
 }
 
 tasks.wrapper {
