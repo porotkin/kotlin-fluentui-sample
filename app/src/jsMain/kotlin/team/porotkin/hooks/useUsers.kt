@@ -4,8 +4,8 @@ import js.objects.jso
 import js.promise.Promise
 import tanstack.query.core.QueryKey
 import tanstack.react.query.useQuery
-import team.porotkin.entities.Users
 import team.porotkin.USERS_QUERY_KEY
+import team.porotkin.entities.Users
 import web.http.fetchAsync
 
 fun useUsers(): Users {
