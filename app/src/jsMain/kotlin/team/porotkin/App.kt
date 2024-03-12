@@ -1,5 +1,7 @@
 package team.porotkin
 
+import fluentui.FluentProvider
+import fluentui.tokens.teamsLightTheme
 import react.FC
 import react.Props
 import react.create
@@ -24,6 +26,10 @@ private val App = FC<Props> {
     QueryClientProvider {
         client = QueryClient
 
-        Header()
+        FluentProvider {
+            theme = teamsLightTheme
+
+            Header()
+        }
     }
 }
