@@ -6,9 +6,10 @@ import react.FC
 import react.Props
 import react.create
 import react.dom.client.createRoot
+import react.router.RouterProvider
 import tanstack.query.core.QueryClient
 import tanstack.react.query.QueryClientProvider
-import team.porotkin.components.Header
+import team.porotkin.routes.Router
 import web.dom.document
 import web.html.HTML.div
 
@@ -29,7 +30,9 @@ private val App = FC<Props> {
         FluentProvider {
             theme = teamsLightTheme
 
-            Header()
+            RouterProvider {
+                router = Router
+            }
         }
     }
 }
