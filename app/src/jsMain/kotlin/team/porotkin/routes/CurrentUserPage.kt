@@ -11,6 +11,9 @@ val CurrentUserPage = FC {
 
     div {
         InlineDrawer {
+            open = true
+            separator = true
+
             DrawerHeader {
                 DrawerHeaderTitle {
                     +"All Users"
