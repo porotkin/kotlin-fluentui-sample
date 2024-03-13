@@ -9,7 +9,7 @@ import react.dom.client.createRoot
 import react.router.RouterProvider
 import tanstack.query.core.QueryClient
 import tanstack.react.query.QueryClientProvider
-import team.porotkin.routes.Router
+import team.porotkin.routes.appRouter
 import web.dom.document
 import web.html.HTML.div
 
@@ -31,8 +31,9 @@ private val App = FC<Props> {
             theme = teamsLightTheme
 
             RouterProvider {
-                router = Router
+                router = appRouter
             }
         }
     }
+
 }

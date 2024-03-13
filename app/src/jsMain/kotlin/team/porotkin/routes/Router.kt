@@ -4,7 +4,7 @@ import js.objects.jso
 import react.create
 import react.router.dom.createBrowserRouter
 
-val Router = createBrowserRouter(
+val appRouter = createBrowserRouter(
     arrayOf(
         jso {
             path = "/"
@@ -14,7 +14,11 @@ val Router = createBrowserRouter(
                     index = true
                     element = UsersPage.create()
                 },
+                jso {
+                    path = ":userId"
+                    element = CurrentUserPage.create()
+                },
             )
-        },
+        }
     )
 )
