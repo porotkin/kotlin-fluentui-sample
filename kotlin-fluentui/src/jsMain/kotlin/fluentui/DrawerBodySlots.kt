@@ -3,6 +3,8 @@
 
 package fluentui
 
+import react.PropsWithChildren
+
 // unhandled import: ComponentProps from "@fluentui/react-utilities" 
 // unhandled import: ComponentState from "@fluentui/react-utilities" 
 // unhandled import: DialogProps from "@fluentui/react-dialog" 
@@ -13,6 +15,6 @@ package fluentui
 // unhandled import: SlotClassNames from "@fluentui/react-utilities" 
 
 
-sealed external interface DrawerBodySlots {
+sealed external interface DrawerBodySlots : PropsWithChildren {
     var root: Slot
 }
