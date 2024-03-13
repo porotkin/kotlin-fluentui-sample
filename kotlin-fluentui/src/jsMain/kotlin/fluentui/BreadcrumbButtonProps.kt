@@ -25,4 +25,6 @@ sealed external interface BreadcrumbButtonProps : BreadcrumbProps, ButtonProps, 
      * @default false
      */
     var current: Boolean?
+
+    var href: String
 }
