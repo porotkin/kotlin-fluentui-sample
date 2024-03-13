@@ -319,7 +319,7 @@ external val Drawer: ForwardRefComponent<DrawerProps>
 /**
  * DrawerBody provides with a container for the main content of a Drawer.
  */
-external val DrawerBody: ForwardRefComponent<DrawerBodyProps>
+external val DrawerBody: FC<DrawerBodyProps>
 
 external val drawerBodyClassNames: SlotClassNames<DrawerBodySlots>
 
@@ -493,3 +493,96 @@ external val useOverlayDrawer_unstable: (props: OverlayDrawerProps, ref: Ref<HTM
  * Apply styling to the OverlayDrawer slots based on the state
  */
 external val useOverlayDrawerStyles_unstable: (state: OverlayDrawerState) -> OverlayDrawerState
+
+/**
+ * Buttons give people a way to trigger an action.
+ */
+external val Button: FC<ButtonProps>
+
+external val buttonClassNames: SlotClassNames<ButtonSlots>
+
+/**
+ * @internal
+ * Internal context provider used to update default values between internal components
+ */
+external val ButtonContextProvider: Provider<ButtonContextValue?>
+
+/**
+ * CompoundButtons are buttons that can have secondary content that adds extra information to the user.
+ */
+external val CompoundButton: ForwardRefComponent<CompoundButtonProps>
+
+external val compoundButtonClassNames: SlotClassNames<CompoundButtonSlots>
+
+/**
+ * MenuButtons are buttons that have a chevron icon after the button contents and are usually clicked to open/close
+ * menus.
+ */
+external val MenuButton: ForwardRefComponent<MenuButtonProps>
+
+external val menuButtonClassNames: SlotClassNames<MenuButtonSlots>
+
+/**
+ * SplitButtons are a grouping of two interactive surfaces where interacting with the first one triggers a primary
+ * action, while interacting with the second one opens a menu with secondary actions.
+ */
+external val SplitButton: ForwardRefComponent<SplitButtonProps>
+
+external val splitButtonClassNames: SlotClassNames<SplitButtonSlots>
+
+/**
+ * ToggleButtons are buttons that toggle between two defined states when triggered.
+ */
+external val ToggleButton: ForwardRefComponent<ToggleButtonProps>
+
+external val toggleButtonClassNames: SlotClassNames<ButtonSlots>
+
+/**
+ * Given user props, defines default props for the Button, calls useButtonState, and returns processed state.
+ * @param props - User provided props to the Button component.
+ * @param ref - User provided ref to be passed to the Button component.
+ */
+external val useButton_unstable: (props: ButtonProps, ref: Ref<Any /* HTMLButtonElement | HTMLAnchorElement */>) -> ButtonState
+
+/**
+ * @internal
+ * Internal context hook used to update default values between internal components
+ */
+external val useButtonContext: () -> ButtonContextValue
+
+external val useButtonStyles_unstable: (state: ButtonState) -> ButtonState
+
+/**
+ * Given user props, defines default props for the CompoundButton, calls useButtonState, and returns processed state.
+ * @param props - User provided props to the CompoundButton component.
+ * @param ref - User provided ref to be passed to the CompoundButton component.
+ */
+external val useCompoundButton_unstable: (options: CompoundButtonProps, ref: Ref<Any /* HTMLButtonElement | HTMLAnchorElement */>) -> CompoundButtonState
+
+external val useCompoundButtonStyles_unstable: (state: CompoundButtonState) -> CompoundButtonState
+
+/**
+ * Given user props, returns the final state for a MenuButton.
+ */
+external val useMenuButton_unstable: (options: MenuButtonProps, ref: Ref<Any /* HTMLButtonElement | HTMLAnchorElement */>) -> MenuButtonState
+
+external val useMenuButtonStyles_unstable: (state: MenuButtonState) -> MenuButtonState
+
+/**
+ * Given user props, defines default props for the SplitButton and returns processed state.
+ * @param props - User provided props to the SplitButton component.
+ * @param ref - User provided ref to be passed to the SplitButton component.
+ */
+external val useSplitButton_unstable: (props: SplitButtonProps, ref: Ref<Any /* HTMLButtonElement | HTMLAnchorElement */>) -> SplitButtonState
+
+external val useSplitButtonStyles_unstable: (state: SplitButtonState) -> SplitButtonState
+
+/**
+ * Given user props, defines default props for the ToggleButton, calls useButtonState and useChecked, and returns
+ * processed state.
+ * @param props - User provided props to the ToggleButton component.
+ * @param ref - User provided ref to be passed to the ToggleButton component.
+ */
+external val useToggleButton_unstable: (props: ToggleButtonProps, ref: Ref<Any /* HTMLButtonElement | HTMLAnchorElement */>) -> ToggleButtonState
+
+external val useToggleButtonStyles_unstable: (state: ToggleButtonState) -> ToggleButtonState

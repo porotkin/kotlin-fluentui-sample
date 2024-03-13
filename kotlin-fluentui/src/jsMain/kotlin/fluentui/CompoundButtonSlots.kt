@@ -11,11 +11,14 @@ package fluentui
 // unhandled import: SlotClassNames from "@fluentui/react-utilities" 
 
 
-sealed external interface ButtonState : ButtonSlots, ButtonProps {
+sealed external interface CompoundButtonSlots : ButtonSlots {
     /**
-     * A button can contain only an icon.
-     *
-     * @default false
+     * Second line of text that describes the action this button takes.
      */
-    var iconOnly: Boolean
+    var secondaryContent: Slot
+
+    /**
+     * Container that wraps the children and the secondaryContent slot.
+     */
+    var contentContainer: NonNullable<Slot>
 }

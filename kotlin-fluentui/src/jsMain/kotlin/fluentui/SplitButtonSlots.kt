@@ -11,11 +11,19 @@ package fluentui
 // unhandled import: SlotClassNames from "@fluentui/react-utilities" 
 
 
-sealed external interface ButtonState : ButtonSlots, ButtonProps {
+sealed external interface SplitButtonSlots {
     /**
-     * A button can contain only an icon.
-     *
-     * @default false
+     * Root of the component that wraps the primary action button and menu button.
      */
-    var iconOnly: Boolean
+    var root: Slot
+
+    /**
+     * Button that opens menu with secondary actions in SplitButton.
+     */
+    var menuButton: Slot
+
+    /**
+     * Button to perform primary action in SplitButton.
+     */
+    var primaryActionButton: Slot
 }

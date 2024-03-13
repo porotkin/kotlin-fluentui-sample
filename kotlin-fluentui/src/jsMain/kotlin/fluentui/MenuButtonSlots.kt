@@ -11,11 +11,9 @@ package fluentui
 // unhandled import: SlotClassNames from "@fluentui/react-utilities" 
 
 
-sealed external interface ButtonState : ButtonSlots, ButtonProps {
+sealed external interface MenuButtonSlots : ButtonSlots {
     /**
-     * A button can contain only an icon.
-     *
-     * @default false
+     * Menu icon that indicates that this button has a menu that can be expanded.
      */
-    var iconOnly: Boolean
+    var menuIcon: Slot
 }
