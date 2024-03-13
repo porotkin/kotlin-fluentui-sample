@@ -333,7 +333,7 @@ external val drawerFooterClassNames: SlotClassNames<DrawerFooterSlots>
 /**
  * DrawerHeader provides a structured header for the drawer component.
  */
-external val DrawerHeader: ForwardRefComponent<DrawerHeaderProps>
+external val DrawerHeader: FC<DrawerHeaderProps>
 
 external val drawerHeaderClassNames: SlotClassNames<DrawerHeaderSlots>
 
@@ -347,7 +347,7 @@ external val drawerHeaderNavigationClassNames: SlotClassNames<DrawerHeaderNaviga
 /**
  * DrawerHeader provides a structured header for the drawer component.
  */
-external val DrawerHeaderTitle: ForwardRefComponent<DrawerHeaderTitleProps>
+external val DrawerHeaderTitle: FC<DrawerHeaderTitleProps>
 
 external val drawerHeaderTitleClassNames: SlotClassNames<DrawerHeaderTitleSlots>
 
@@ -355,7 +355,7 @@ external val drawerHeaderTitleClassNames: SlotClassNames<DrawerHeaderTitleSlots>
  * InlineDrawer is often used for navigation that is not dismissible. As it is on the same level as
  * the main surface, users can still interact with other UI elements.
  */
-external val InlineDrawer: ForwardRefComponent<InlineDrawerProps>
+external val InlineDrawer: FC<InlineDrawerProps>
 
 external val inlineDrawerClassNames: SlotClassNames<InlineDrawerSlots>
 
