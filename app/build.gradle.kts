@@ -1,6 +1,7 @@
 plugins {
     id("io.github.turansky.kfc.application")
     id("io.github.turansky.kfc.wrappers")
+    id("io.github.turansky.kfc.webpack")
 }
 
 val coroutinesVersion = project.property("kotlinx-coroutines.version") as String
@@ -17,4 +18,16 @@ dependencies {
 
     jsMainApi(npmv("@fluentui/react-components"))
     jsMainApi(project(":kotlin-fluentui"))
+}
+
+tasks {
+    patchWebpackConfig {
+        patch(
+            """
+            config.devServer = {
+                historyApiFallback: true
+            }
+        """
+        )
+    }
 }
