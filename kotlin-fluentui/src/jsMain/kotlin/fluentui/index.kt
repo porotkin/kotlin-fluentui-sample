@@ -7,6 +7,7 @@ package fluentui
 import react.FC
 import react.Provider
 import react.Ref
+import web.html.HTMLDivElement
 import web.html.HTMLElement
 import web.html.HTMLLIElement
 
@@ -309,3 +310,186 @@ external val useText_unstable: (props: TextProps, ref: Ref<HTMLElement>) -> Text
  * Apply styling to the Text slots based on the state
  */
 external val useTextStyles_unstable: (state: TextState) -> TextState
+
+/**
+ * Drawer contains supplementary content and are used for complex creation, edit, or management experiences.
+ */
+external val Drawer: ForwardRefComponent<DrawerProps>
+
+/**
+ * DrawerBody provides with a container for the main content of a Drawer.
+ */
+external val DrawerBody: ForwardRefComponent<DrawerBodyProps>
+
+external val drawerBodyClassNames: SlotClassNames<DrawerBodySlots>
+
+/**
+ * DrawerFooter provides a structured footer for the drawer component.
+ */
+external val DrawerFooter: ForwardRefComponent<DrawerFooterProps>
+
+external val drawerFooterClassNames: SlotClassNames<DrawerFooterSlots>
+
+/**
+ * DrawerHeader provides a structured header for the drawer component.
+ */
+external val DrawerHeader: ForwardRefComponent<DrawerHeaderProps>
+
+external val drawerHeaderClassNames: SlotClassNames<DrawerHeaderSlots>
+
+/**
+ * DrawerHeaderNavigation provides a header navigation area for the Drawer.
+ */
+external val DrawerHeaderNavigation: ForwardRefComponent<DrawerHeaderNavigationProps>
+
+external val drawerHeaderNavigationClassNames: SlotClassNames<DrawerHeaderNavigationSlots>
+
+/**
+ * DrawerHeader provides a structured header for the drawer component.
+ */
+external val DrawerHeaderTitle: ForwardRefComponent<DrawerHeaderTitleProps>
+
+external val drawerHeaderTitleClassNames: SlotClassNames<DrawerHeaderTitleSlots>
+
+/**
+ * InlineDrawer is often used for navigation that is not dismissible. As it is on the same level as
+ * the main surface, users can still interact with other UI elements.
+ */
+external val InlineDrawer: ForwardRefComponent<InlineDrawerProps>
+
+external val inlineDrawerClassNames: SlotClassNames<InlineDrawerSlots>
+
+/**
+ * OverlayDrawer contains supplementary content and are used for complex creation, edit, or management experiences.
+ */
+external val OverlayDrawer: ForwardRefComponent<OverlayDrawerProps>
+
+external val overlayDrawerClassNames: SlotClassNames<OverlayDrawerSurfaceSlots>
+
+/**
+ * Create the state required to render Drawer.
+ *
+ * The returned state can be modified with hooks such as useDrawerStyles_unstable,
+ * before being passed to renderDrawer_unstable.
+ *
+ * @param props - props from this instance of Drawer
+ * @param ref - reference to root HTMLElement of Drawer
+ */
+external val useDrawer_unstable: (props: DrawerProps, ref: Ref<HTMLElement>) -> DrawerState
+
+/**
+ * Create the state required to render DrawerBody.
+ *
+ * The returned state can be modified with hooks such as useDrawerBodyStyles_unstable,
+ * before being passed to renderDrawerBody_unstable.
+ *
+ * @param props - props from this instance of DrawerBody
+ * @param ref - reference to root HTMLElement of DrawerBody
+ */
+external val useDrawerBody_unstable: (props: DrawerBodyProps, ref: Ref<HTMLElement>) -> DrawerBodyState
+
+/**
+ * Apply styling to the DrawerBody slots based on the state
+ */
+external val useDrawerBodyStyles_unstable: (state: DrawerBodyState) -> DrawerBodyState
+
+/**
+ * Create the state required to render DrawerFooter.
+ *
+ * The returned state can be modified with hooks such as useDrawerFooterStyles_unstable,
+ * before being passed to renderDrawerFooter_unstable.
+ *
+ * @param props - props from this instance of DrawerFooter
+ * @param ref - reference to root HTMLElement of DrawerFooter
+ */
+external val useDrawerFooter_unstable: (props: DrawerFooterProps, ref: Ref<HTMLElement>) -> DrawerFooterState
+
+/**
+ * Apply styling to the DrawerFooter slots based on the state
+ */
+external val useDrawerFooterStyles_unstable: (state: DrawerFooterState) -> DrawerFooterState
+
+/**
+ * Create the state required to render DrawerHeader.
+ *
+ * The returned state can be modified with hooks such as useDrawerHeaderStyles_unstable,
+ * before being passed to renderDrawerHeader_unstable.
+ *
+ * @param props - props from this instance of DrawerHeader
+ * @param ref - reference to root HTMLElement of DrawerHeader
+ */
+external val useDrawerHeader_unstable: (props: DrawerHeaderProps, ref: Ref<HTMLElement>) -> DrawerHeaderState
+
+/**
+ * Create the state required to render DrawerHeaderNavigation.
+ *
+ * The returned state can be modified with hooks such as useDrawerHeaderNavigationStyles_unstable,
+ * before being passed to renderDrawerHeaderNavigation_unstable.
+ *
+ * @param props - props from this instance of DrawerHeaderNavigation
+ * @param ref - reference to root HTMLElement of DrawerHeaderNavigation
+ */
+external val useDrawerHeaderNavigation_unstable: (props: DrawerHeaderNavigationProps, ref: Ref<HTMLElement>) -> DrawerHeaderNavigationState
+
+/**
+ * Apply styling to the DrawerHeaderNavigation slots based on the state
+ */
+external val useDrawerHeaderNavigationStyles_unstable: (state: DrawerHeaderNavigationState) -> DrawerHeaderNavigationState
+
+/**
+ * Apply styling to the DrawerHeader slots based on the state
+ */
+external val useDrawerHeaderStyles_unstable: (state: DrawerHeaderState) -> DrawerHeaderState
+
+/**
+ * Create the state required to render DrawerHeaderTitle.
+ *
+ * The returned state can be modified with hooks such as useDrawerHeaderTitleStyles_unstable,
+ * before being passed to renderDrawerHeaderTitle_unstable.
+ *
+ * @param props - props from this instance of DrawerHeaderTitle
+ * @param ref - reference to root HTMLElement of DrawerHeaderTitle
+ */
+external val useDrawerHeaderTitle_unstable: (props: DrawerHeaderTitleProps, ref: Ref<HTMLDivElement>) -> DrawerHeaderTitleState
+
+/**
+ * Apply styling to the DrawerHeaderTitle slots based on the state
+ */
+external val useDrawerHeaderTitleStyles_unstable: (state: DrawerHeaderTitleState) -> DrawerHeaderTitleState
+
+/**
+ * Apply styling to the Drawer slots based on the state
+ */
+external val useDrawerStyles_unstable: (state: DrawerState) -> DrawerState
+
+/**
+ * Create the state required to render InlineDrawer.
+ *
+ * The returned state can be modified with hooks such as useInlineDrawerStyles_unstable,
+ * before being passed to renderInlineDrawer_unstable.
+ *
+ * @param props - props from this instance of InlineDrawer
+ * @param ref - reference to root HTMLElement of InlineDrawer
+ */
+external val useInlineDrawer_unstable: (props: InlineDrawerProps, ref: Ref<HTMLDivElement>) -> InlineDrawerState
+
+/**
+ * Apply styling to the InlineDrawer slots based on the state
+ */
+external val useInlineDrawerStyles_unstable: (state: InlineDrawerState) -> InlineDrawerState
+
+/**
+ * Create the state required to render OverlayDrawer.
+ *
+ * The returned state can be modified with hooks such as useOverlayDrawerStyles_unstable,
+ * before being passed to renderOverlayDrawer_unstable.
+ *
+ * @param props - props from this instance of OverlayDrawer
+ * @param ref - reference to root HTMLDivElement of OverlayDrawer
+ */
+external val useOverlayDrawer_unstable: (props: OverlayDrawerProps, ref: Ref<HTMLDivElement>) -> OverlayDrawerState
+
+/**
+ * Apply styling to the OverlayDrawer slots based on the state
+ */
+external val useOverlayDrawerStyles_unstable: (state: OverlayDrawerState) -> OverlayDrawerState
