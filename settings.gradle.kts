@@ -10,6 +10,7 @@ pluginManagement {
         id("io.github.turansky.kfc.application") version kfcVersion
         id("io.github.turansky.kfc.library") version kfcVersion
         id("io.github.turansky.kfc.wrappers") version kfcVersion
+        id("io.github.turansky.kfc.webpack") version kfcVersion
     }
 }
 
