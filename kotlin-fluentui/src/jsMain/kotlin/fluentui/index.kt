@@ -115,7 +115,7 @@ external val useBreadcrumbStyles_unstable: (state: BreadcrumbState) -> Breadcrum
 /**
  * A card provides scaffolding for hosting actions and content for a single topic.
  */
-external val Card: ForwardRefComponent<CardProps>
+external val Card: FC<CardProps>
 
 /**
  * Static CSS class names used internally for the component slots.

@@ -3,6 +3,8 @@
 
 package fluentui
 
+import react.PropsWithChildren
+
 // unhandled import: ComponentProps from "@fluentui/react-utilities" 
 // unhandled import: ComponentState from "@fluentui/react-utilities" 
 // unhandled import: ForwardRefComponent from "@fluentui/react-utilities" 
@@ -13,7 +15,7 @@ package fluentui
  * Card component props.
  */
 
-sealed external interface CardProps : CardSlots {
+sealed external interface CardProps : CardSlots, PropsWithChildren {
     /**
      * Sets the appearance of the card.
      *
