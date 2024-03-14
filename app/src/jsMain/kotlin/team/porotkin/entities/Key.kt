@@ -1,3 +1,3 @@
 package team.porotkin.entities
 
-typealias Key = String
+typealias Key = Int
