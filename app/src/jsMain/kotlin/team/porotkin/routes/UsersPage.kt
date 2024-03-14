@@ -1,11 +1,9 @@
 package team.porotkin.routes
 
-import fluentui.Breadcrumb
-import fluentui.BreadcrumbButton
-import fluentui.BreadcrumbDivider
-import fluentui.BreadcrumbItem
+import fluentui.Card
 import react.FC
 import react.dom.html.ReactHTML
+import react.router.dom.Link
 import team.porotkin.hooks.useUsers
 
 val UsersPage = FC {
@@ -13,15 +11,12 @@ val UsersPage = FC {
 
     ReactHTML.div {
         users.forEach {
-            Breadcrumb {
-                BreadcrumbItem {
-                    BreadcrumbButton {
-                        href = "/${it.id}"
+            Card {
+                Link {
+                    to = "/${it.id}"
 
-                        +it.name
-                    }
+                    +it.name
                 }
-                BreadcrumbDivider
             }
         }
     }
