@@ -5,6 +5,7 @@ import js.array.ReadonlyArray
 import js.objects.jso
 import react.FC
 import react.Props
+import react.create
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.table
 import react.dom.html.ReactHTML.tbody
@@ -16,6 +17,7 @@ import tanstack.react.table.renderCell
 import tanstack.react.table.renderHeader
 import tanstack.react.table.useReactTable
 import tanstack.table.core.ColumnDef
+import tanstack.table.core.ColumnDefTemplate
 import tanstack.table.core.StringOrTemplateHeader
 import tanstack.table.core.getCoreRowModel
 import team.porotkin.entities.UserAlbum
@@ -36,7 +38,7 @@ val UserAlbumsTable = FC<UserAlbumsTableProps> {
                 jso {
                     id = "foldingControl"
                     header = StringOrTemplateHeader("")
-//                    cell = ColumnDefTemplate { FoldingControl.create() }
+                    cell = ColumnDefTemplate { FoldingControl.create { row = it.row } }
                 },
                 jso {
                     id = "albumId"
