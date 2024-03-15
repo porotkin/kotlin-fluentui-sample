@@ -4,18 +4,22 @@ import fluentui.*
 import js.objects.jso
 import react.FC
 import react.dom.html.ReactHTML.div
-import react.dom.html.ReactHTML.p
+import react.router.useNavigate
+import team.porotkin.components.UserAlbumsTable
+import team.porotkin.hooks.useUserAlbums
 import team.porotkin.hooks.useUsers
-import web.cssom.Globals.Companion.inherit
+import web.cssom.pct
 
 val CurrentUserPage = FC {
+    val navigate = useNavigate()
     val users = useUsers()
+    val userAlbums = useUserAlbums()
 
     div {
         style = jso {
             display = web.cssom.Display.flex
-            width = inherit
-            height = inherit
+            width = 100.pct
+            height = 93.pct
         }
 
         InlineDrawer {
@@ -29,19 +33,20 @@ val CurrentUserPage = FC {
             }
 
             DrawerBody {
-                p { +"Drawer Body" }
+                Card {
+                    users.forEach { user ->
+                        Button {
+                            onClick = { navigate("/${user.id}") }
+
+                            +user.name
+                        }
+                    }
+                }
             }
         }
 
-        div {
-            users.forEach {
-                Breadcrumb {
-                    BreadcrumbItem {
-                        +it.name
-                    }
-                    BreadcrumbDivider
-                }
-            }
+        UserAlbumsTable {
+            this.userAlbums = userAlbums
         }
     }
 }
