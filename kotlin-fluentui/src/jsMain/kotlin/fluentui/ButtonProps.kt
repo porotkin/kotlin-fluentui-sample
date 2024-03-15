@@ -4,6 +4,7 @@
 package fluentui
 
 import react.PropsWithChildren
+import web.events.EventHandler
 
 // unhandled import: ARIAButtonSlotProps from "@fluentui/react-aria" 
 // unhandled import: ComponentProps from "@fluentui/react-utilities" 
@@ -14,6 +15,7 @@ import react.PropsWithChildren
 
 
 sealed external interface ButtonProps : ButtonSlots, PropsWithChildren {
+    var onClick: EventHandler<*>
     /**
      * A button can have its content and borders styled for greater emphasis or to be subtle.
      * - 'secondary' (default): Gives emphasis to the button in such a way that it indicates a secondary action.
