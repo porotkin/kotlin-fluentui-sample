@@ -3,9 +3,11 @@ package team.porotkin.components
 import emotion.react.css
 import js.objects.jso
 import react.FC
+import react.Fragment
 import react.Props
 import react.create
 import react.dom.html.ReactHTML.div
+import react.dom.html.ReactHTML.img
 import react.dom.html.ReactHTML.table
 import react.dom.html.ReactHTML.tbody
 import react.dom.html.ReactHTML.td
@@ -44,7 +46,13 @@ val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
                     id = "preview"
                     header = StringOrTemplateHeader("Preview")
                     accessorFn = { row, _ -> row.thumbnailUrl }
-                    cell = ColumnDefTemplate { div.create { +"Image" } }
+                    cell = ColumnDefTemplate { template ->
+                        Fragment.create {
+                            img {
+                                src = template.row.original.thumbnailUrl
+                            }
+                        }
+                    }
                 },
                 jso {
                     id = "title"
