@@ -1,7 +1,6 @@
 package team.porotkin.components
 
 import emotion.react.css
-import js.array.ReadonlyArray
 import js.objects.jso
 import react.FC
 import react.Props
@@ -16,36 +15,40 @@ import react.dom.html.ReactHTML.tr
 import tanstack.react.table.renderCell
 import tanstack.react.table.renderHeader
 import tanstack.react.table.useReactTable
-import tanstack.table.core.*
-import team.porotkin.entities.UserAlbum
-import team.porotkin.hooks.useAlbumPhotos
+import tanstack.table.core.ColumnDef
+import tanstack.table.core.ColumnDefTemplate
+import tanstack.table.core.StringOrTemplateHeader
+import tanstack.table.core.getCoreRowModel
+import team.porotkin.entities.AlbumPhoto
+import team.porotkin.entities.AlbumPhotos
 import web.cssom.*
 import web.cssom.Auto.Companion.auto
 import web.cssom.LineStyle.Companion.solid
 import web.cssom.None.Companion.none
 
-external interface UserAlbumsTableProps : Props {
-    var userAlbums: ReadonlyArray<UserAlbum>
+external interface AlbumPhotosSubTableProps : Props {
+    var albumPhotos: AlbumPhotos
 }
 
-val UserAlbumsTable = FC<UserAlbumsTableProps> {
-    val table = useReactTable<UserAlbum>(
+val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
+    val table = useReactTable<AlbumPhoto>(
         options = jso {
-            data = it.userAlbums
-            columns = arrayOf<ColumnDef<UserAlbum, String>>(
+            data = it.albumPhotos
+            columns = arrayOf<ColumnDef<AlbumPhoto, String>>(
                 jso {
-                    id = "foldingControl"
-                    header = StringOrTemplateHeader("")
-                    cell = ColumnDefTemplate { FoldingControl.create { row = it.row } }
-                },
-                jso {
-                    id = "albumId"
+                    id = "id"
                     header = StringOrTemplateHeader("№")
                     accessorFn = { row, _ -> row.id.toString() }
                 },
                 jso {
+                    id = "preview"
+                    header = StringOrTemplateHeader("Preview")
+                    accessorFn = { row, _ -> row.thumbnailUrl }
+                    cell = ColumnDefTemplate { div.create { +"Image" } }
+                },
+                jso {
                     id = "title"
-                    header = StringOrTemplateHeader("Album Title")
+                    header = StringOrTemplateHeader("Photo Title")
                     accessorFn = { row, _ -> row.title }
                 },
             )
@@ -105,45 +108,11 @@ val UserAlbumsTable = FC<UserAlbumsTableProps> {
                                 +renderCell(cell)
                             }
                         }
-
-                    }
-
-                    if (row.getIsExpanded()) {
-                        SubTable {
-                            this.row = row
-                        }
                     }
                 }
             }
         }
     }
-}
-
-external interface SubTableProps : Props {
-    var row: Row<UserAlbum>
-}
-
-val SubTable = FC<SubTableProps> {
-    val albumPhotosQueryResult = useAlbumPhotos(it.row.original.id)
-
-    if (albumPhotosQueryResult.isLoading) {
-        return@FC div {
-            +"Loading data for ${it.row.original.title}"
-        }
-    }
-
-    tr {
-        td {
-            css {
-                padding = Padding(10.px, 12.px)
-            }
-
-            AlbumPhotosSubTable {
-                this.albumPhotos = albumPhotosQueryResult.data
-            }
-        }
-    }
-
 }
 
 
