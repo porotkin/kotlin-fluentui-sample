@@ -50,6 +50,7 @@ val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
                         Fragment.create {
                             img {
                                 src = template.row.original.thumbnailUrl
+                                alt = "preview for ${template.row.original.title}"
                             }
                         }
                     }
