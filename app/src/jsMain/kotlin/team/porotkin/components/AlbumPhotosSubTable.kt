@@ -51,6 +51,17 @@ val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
                             img {
                                 src = template.row.original.thumbnailUrl
                                 alt = "preview for ${template.row.original.title}"
+                                draggable = false
+                            }
+                            SlideShow {
+                                values = it.albumPhotos.map {
+                                    val value = jso<Image> {
+                                        src = it.url
+                                        alt = "preview for $${it.title}"
+                                    }
+
+                                    return@map value
+                                }.toTypedArray()
                             }
                         }
                     }

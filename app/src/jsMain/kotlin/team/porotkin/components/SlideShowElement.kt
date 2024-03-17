@@ -1,29 +1,43 @@
 package team.porotkin.components
 
-import SlideShowProps
-import react.FC
-import react.Props
-import react.Suspense
+import js.import.import
+import js.objects.jso
+import react.*
 import react.dom.html.ReactHTML.div
-import react.useRef
-import web.dom.document
+import web.cssom.px
 
-external interface SlideShowElementProps : SlideShowProps, Props
+// TODO: Duplicated from kotlin-slideshow to prevent bundling
+external interface SlideShowProps : Props {
+    var loop: Boolean?
+    var active: String?
+    var autoplay: Boolean?
+    var values: Array<out Image>
+}
 
-val SlideShowElement = FC<SlideShowElementProps>("SlideShowElement") {
-    val ref = useRef(initialValue = document.createElement("slide-show"))
+// TODO: Duplicated from kotlin-slideshow to prevent bundling
+external interface Image {
+    var src: String
+    var alt: String
+}
 
-    div {
-        this.ref = ref
+val SlideShowElement = lazy {
+    import<ComponentModule<SlideShowProps>>("../../kotlin-slideshow/kotlin/kotlin-slideshow.mjs").then {
+        it.asDynamic().default = it.asDynamic().SlideShowElement.get()
+        return@then it
     }
 }
 
-
-val SlideShow = FC<SlideShowElementProps> {
+val SlideShow = FC<SlideShowProps> { props ->
     Suspense {
+        fallback = div.create { +"Loading album photos" }
         div {
-            lazy {
-                SlideShowElement {}
+            style = jso {
+                maxWidth = 600.px
+                maxHeight = 600.px
+            }
+
+            SlideShowElement {
+                values = props.values
             }
         }
     }
