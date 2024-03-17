@@ -18,7 +18,6 @@ dependencies {
     jsMainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutinesVersion")
 
     jsMainApi(npmv("@fluentui/react-components"))
-    jsMainApi(npmv("@stephband/slide-show"))
 
     jsMainApi(project(":kotlin-fluentui"))
     jsMainApi(project(":kotlin-slideshow"))

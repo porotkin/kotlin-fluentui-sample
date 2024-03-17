@@ -1,9 +1,6 @@
 plugins {
     kotlin("multiplatform")
-}
-
-kotlin {
-    js().browser()
+    id("io.github.turansky.kfc.application")
 }
 
 tasks.wrapper {
