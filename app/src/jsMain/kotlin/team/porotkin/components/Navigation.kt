@@ -37,7 +37,7 @@ val Navigation = FC {
         Breadcrumb {
             BreadcrumbItem {
                 BreadcrumbButton {
-                    href = "/"
+                    href = "#"
 
                     +"Home"
                 }
@@ -46,7 +46,7 @@ val Navigation = FC {
                 BreadcrumbDivider {}
                 BreadcrumbItem {
                     BreadcrumbButton {
-                        href = "/$it"
+                        href = "#/$it"
 
                         +currentUser?.name.toString()
                     }
