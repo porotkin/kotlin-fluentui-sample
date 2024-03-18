@@ -56,11 +56,6 @@ val SlideShowElement = FC<SlideShowProps> { props ->
         }
 
         viewRef.current = view
-        with(view.asDynamic()) {
-            loop = false
-            controls = props.controls ?: "navigation"
-            active = props.active
-        }
     }
 
     useEffect(viewRef.current) {
