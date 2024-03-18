@@ -3,7 +3,9 @@
 
 package fluentui
 
+import react.PropsWithChildren
 
-sealed external interface DialogContentSlots {
+
+sealed external interface DialogContentSlots : PropsWithChildren {
     var root: Slot
 }

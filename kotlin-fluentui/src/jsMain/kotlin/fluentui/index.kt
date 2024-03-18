@@ -608,7 +608,7 @@ external val dialogActionsClassNames: SlotClassNames<DialogActionsSlots>
  * The `DialogBody` is a container where the content of the dialog is rendered.
  * Apart from styling, this component does not have other behavior.
  */
-external val DialogBody: ForwardRefComponent<DialogBodyProps>
+external val DialogBody: FC<DialogBodyProps>
 
 external val dialogBodyClassNames: SlotClassNames<DialogBodySlots>
 
@@ -616,7 +616,7 @@ external val dialogBodyClassNames: SlotClassNames<DialogBodySlots>
  * The `DialogContent` is a container where the content of the dialog is rendered.
  * Apart from styling, this component does not have other behavior.
  */
-external val DialogContent: ForwardRefComponent<DialogContentProps>
+external val DialogContent: FC<DialogContentProps>
 
 external val dialogContentClassNames: SlotClassNames<DialogContentSlots>
 
@@ -624,7 +624,7 @@ external val dialogContentClassNames: SlotClassNames<DialogContentSlots>
  * DialogSurface component represents the visual part of a `Dialog` as a whole,
  * it contains everything that should be visible.
  */
-external val DialogSurface: ForwardRefComponent<DialogSurfaceProps>
+external val DialogSurface: FC<DialogSurfaceProps>
 
 external val dialogSurfaceClassNames: SlotClassNames<DialogSurfaceSlots>
 
@@ -634,7 +634,7 @@ external val DialogSurfaceProvider: Provider<Boolean?>
  * The `DialogTitle` component expects to have a title/header
  * and when `Dialog` is `non-modal` a close (X icon) button is provided through `action` slot by default.
  */
-external val DialogTitle: ForwardRefComponent<DialogTitleProps>
+external val DialogTitle: FC<DialogTitleProps>
 
 external val dialogTitleClassNames: SlotClassNames<DialogTitleSlots>
 

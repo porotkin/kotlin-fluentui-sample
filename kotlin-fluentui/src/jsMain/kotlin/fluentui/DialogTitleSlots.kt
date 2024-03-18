@@ -3,8 +3,10 @@
 
 package fluentui
 
+import react.PropsWithChildren
 
-sealed external interface DialogTitleSlots {
+
+sealed external interface DialogTitleSlots : PropsWithChildren {
     /**
      * By default this is a h2, but can be any heading or div,
      * if `div` is provided do not forget to also provide proper `role="heading"` and `aria-level` attributes

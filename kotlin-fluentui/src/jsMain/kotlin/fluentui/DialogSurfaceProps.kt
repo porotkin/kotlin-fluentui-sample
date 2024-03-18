@@ -3,9 +3,11 @@
 
 package fluentui
 
+import react.PropsWithChildren
+
 
 /**
  * DialogSurface Props
  */
 
-sealed external interface DialogSurfaceProps : DialogSurfaceSlots
+sealed external interface DialogSurfaceProps : DialogSurfaceSlots, PropsWithChildren
