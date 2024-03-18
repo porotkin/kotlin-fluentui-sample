@@ -1,6 +1,7 @@
 package team.porotkin.routes
 
 import fluentui.*
+import fluentui.icons.GlobePersonRegular
 import js.objects.jso
 import react.FC
 import react.create
@@ -11,6 +12,7 @@ import react.router.dom.Link
 import react.router.useNavigate
 import team.porotkin.hooks.useUsers
 import team.porotkin.utils.Insets
+import team.porotkin.utils.Sizes
 import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.fr
@@ -36,6 +38,12 @@ val UsersPage = FC {
         users.forEach { user ->
             Card {
                 CardHeader {
+                    image = GlobePersonRegular.create {
+                        style = jso {
+                            width = Sizes.CardImage.LARGE
+                            height = Sizes.CardImage.LARGE
+                        }
+                    }
                     header = Body1.create {
                         b {
                             +user.name

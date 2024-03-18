@@ -1,8 +1,12 @@
 package team.porotkin.components
 
 import fluentui.Button
+import fluentui.Temp49.Companion.secondary
+import fluentui.icons.ChevronDownRegular
+import fluentui.icons.ChevronRightRegular
 import react.FC
 import react.Props
+import react.create
 import tanstack.table.core.Row
 
 external interface FoldingControlProps : Props {
@@ -16,7 +20,7 @@ val FoldingControl = FC<FoldingControlProps> { props ->
 
     Button {
         onClick = { props.row.toggleExpanded(!props.row.getIsExpanded()) }
-
-        +if (props.row.getIsExpanded()) "Collapse" else "Expand"
+        icon = if (props.row.getIsExpanded()) ChevronDownRegular.create() else ChevronRightRegular.create()
+        appearance = secondary
     }
 }
