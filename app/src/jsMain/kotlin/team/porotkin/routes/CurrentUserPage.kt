@@ -6,14 +6,14 @@ import react.FC
 import react.dom.html.ReactHTML.div
 import react.router.useNavigate
 import team.porotkin.components.UserAlbumsTable
-import team.porotkin.hooks.useUserAlbums
+import team.porotkin.hooks.useUserAlbumsCoroutine
 import team.porotkin.hooks.useUsers
 import web.cssom.pct
 
 val CurrentUserPage = FC {
     val navigate = useNavigate()
     val users = useUsers()
-    val userAlbums = useUserAlbums()
+    val userAlbums = useUserAlbumsCoroutine() // useUserAlbums()
 
     div {
         style = jso {

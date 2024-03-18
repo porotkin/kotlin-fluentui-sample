@@ -2,7 +2,12 @@ package team.porotkin.hooks
 
 import js.objects.jso
 import js.promise.Promise
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import react.router.useParams
+import react.useEffect
+import react.useMemo
+import react.useState
 import tanstack.query.core.QueryKey
 import tanstack.react.query.useQuery
 import team.porotkin.USER_ALBUMS_QUERY_KEY
@@ -20,6 +25,27 @@ fun useUserAlbums(): UserAlbums {
         },
     )
     return result.data ?: emptyArray()
+}
+
+fun useUserAlbumsCoroutine(): UserAlbums {
+    val currentUserId = useParams()["userId"]
+    var userAlbums by useState<UserAlbums>(emptyArray())
+
+    useEffect(currentUserId) {
+        val job = MainScope().launch {
+            getUserAlbums(currentUserId!!).then {
+                userAlbums = it
+            }
+        }
+
+        cleanup {
+            job.cancel()
+        }
+    }
+
+    return useMemo(userAlbums) {
+        userAlbums
+    }
 }
 
 private fun getUserAlbums(userId: String): Promise<UserAlbums> =
