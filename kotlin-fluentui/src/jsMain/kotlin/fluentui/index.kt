@@ -661,3 +661,10 @@ external val SkeletonContextProvider: Provider<SkeletonContextValue?>
 external val SkeletonItem: FC<SkeletonItemProps>
 
 external val skeletonItemClassNames: SlotClassNames<SkeletonItemSlots>
+
+/**
+ * The Input component allows people to enter and edit text.
+ */
+external val Input: FC<InputProps>
+
+external val inputClassNames: SlotClassNames<InputSlots>
