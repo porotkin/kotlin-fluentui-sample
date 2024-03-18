@@ -6,6 +6,7 @@ import react.FC
 import react.create
 import react.dom.html.ReactHTML.div
 import react.router.useNavigate
+import react.router.useParams
 import team.porotkin.components.UserAlbumsTable
 import team.porotkin.hooks.useUserAlbumsCoroutine
 import team.porotkin.hooks.useUsers
@@ -17,6 +18,8 @@ val CurrentUserPage = FC {
     val navigate = useNavigate()
     val users = useUsers()
     val userAlbums = useUserAlbumsCoroutine() // useUserAlbums()
+
+    val currentUserId = useParams()["userId"]
 
     div {
         style = jso {
@@ -40,9 +43,16 @@ val CurrentUserPage = FC {
             }
 
             DrawerBody {
-                Card {
+                div {
+                    style = jso {
+                        display = web.cssom.Display.flex
+                        flexDirection = FlexDirection.column
+                        gap = Insets.Common.SMALL
+                    }
+
                     users.forEach { user ->
-                        Button {
+                        Card {
+                            selected = user.id.toString() == currentUserId
                             onClick = { navigate("/${user.id}") }
 
                             +user.name
