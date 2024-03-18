@@ -50,6 +50,7 @@ val UserAlbumsTable = FC<UserAlbumsTableProps> {
                 },
             )
             getCoreRowModel = getCoreRowModel()
+            getExpandedRowModel = getExpandedRowModel()
             getRowCanExpand = { true }
         }
     )
@@ -137,6 +138,7 @@ val SubTable = FC<SubTableProps> {
             css {
                 padding = Padding(10.px, 12.px)
             }
+            colSpan = 3
 
             AlbumPhotosSubTable {
                 this.albumPhotos = albumPhotosQueryResult.data
