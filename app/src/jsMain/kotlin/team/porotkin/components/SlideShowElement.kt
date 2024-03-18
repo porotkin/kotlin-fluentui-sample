@@ -5,13 +5,13 @@ import js.objects.jso
 import react.*
 import react.dom.html.ReactHTML.div
 import team.porotkin.entities.AlbumPhotos
-import web.cssom.px
 
 // TODO: Duplicated from kotlin-slideshow to prevent bundling
 external interface SlideShowProps : Props {
     var loop: Boolean?
     var active: String?
     var autoplay: Boolean?
+    var controls: String?
     var values: Array<out Image>
 }
 
@@ -19,6 +19,7 @@ external interface SlideShowProps : Props {
 external interface Image {
     var src: String
     var alt: String
+    var id: Int
 }
 
 val SlideShowElement = lazy {
@@ -31,15 +32,10 @@ val SlideShowElement = lazy {
 val SlideShow = FC<SlideShowProps> { props ->
     Suspense {
         fallback = div.create { +"Loading album photos" }
-        div {
-            style = jso {
-                maxWidth = 600.px
-                maxHeight = 600.px
-            }
-
-            SlideShowElement {
-                values = props.values
-            }
+        SlideShowElement {
+            values = props.values
+            controls = "navigation fullscreen"
+            active = props.active
         }
     }
 }
@@ -48,6 +44,7 @@ fun AlbumPhotos.toSlideShowValues() = this.map {
     val value = jso<Image> {
         src = it.url
         alt = "preview for $${it.title}"
+        id = it.id
     }
 
     return@map value

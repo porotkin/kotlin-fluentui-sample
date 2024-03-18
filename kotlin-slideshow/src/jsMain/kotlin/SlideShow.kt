@@ -19,6 +19,7 @@ external interface SlideShowProps : Props {
 external interface Image {
     val src: String
     val alt: String
+    var id: Int
 }
 
 @JsExport()
@@ -33,8 +34,6 @@ val SlideShowElement = FC<SlideShowProps> { props ->
         val view = document.createElement("slide-show")
         ref.current?.appendChild(view)
 
-        view.asDynamic().loop = false
-        view.asDynamic().controls = "navigation"
 
         val style = document.createElement("link")
         style.asDynamic().rel = "stylesheet"
@@ -48,6 +47,7 @@ val SlideShowElement = FC<SlideShowProps> { props ->
                     with(photo.asDynamic()) {
                         src = it.src
                         alt = it.alt
+                        id = it.id
                         draggable = false
                     }
                     view.appendChild(photo)
@@ -56,6 +56,25 @@ val SlideShowElement = FC<SlideShowProps> { props ->
         }
 
         viewRef.current = view
+        with(view.asDynamic()) {
+            loop = false
+            controls = props.controls ?: "navigation"
+            active = props.active
+        }
+    }
+
+    useEffect(viewRef.current) {
+        if (viewRef.current == null) {
+            return@useEffect
+        }
+
+        setTimeout({
+            with(viewRef.current.asDynamic()) {
+                loop = false
+                controls = props.controls ?: "navigation"
+                active = props.active
+            }
+        }, 500)
     }
 
     div {

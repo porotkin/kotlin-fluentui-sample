@@ -80,8 +80,11 @@ val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
                                             +"Image Viewer"
                                         }
                                         DialogContent {
-                                            SlideShow {
-                                                values = it.albumPhotos.toSlideShowValues()
+                                            div {
+                                                SlideShow {
+                                                    values = it.albumPhotos.toSlideShowValues()
+                                                    active = template.row.original.id.toString()
+                                                }
                                             }
                                         }
                                     }
