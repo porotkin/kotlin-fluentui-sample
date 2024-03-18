@@ -8,7 +8,6 @@ import react.router.useNavigate
 import team.porotkin.components.UserAlbumsTable
 import team.porotkin.hooks.useUserAlbumsCoroutine
 import team.porotkin.hooks.useUsers
-import web.cssom.pct
 
 val CurrentUserPage = FC {
     val navigate = useNavigate()
@@ -18,8 +17,6 @@ val CurrentUserPage = FC {
     div {
         style = jso {
             display = web.cssom.Display.flex
-            width = 100.pct
-            height = 93.pct
         }
 
         InlineDrawer {
