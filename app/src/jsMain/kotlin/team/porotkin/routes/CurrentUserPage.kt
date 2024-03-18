@@ -3,11 +3,14 @@ package team.porotkin.routes
 import fluentui.*
 import js.objects.jso
 import react.FC
+import react.create
 import react.dom.html.ReactHTML.div
 import react.router.useNavigate
 import team.porotkin.components.UserAlbumsTable
 import team.porotkin.hooks.useUserAlbumsCoroutine
 import team.porotkin.hooks.useUsers
+import team.porotkin.utils.Insets
+import web.cssom.FlexDirection
 
 val CurrentUserPage = FC {
     val navigate = useNavigate()
@@ -24,8 +27,13 @@ val CurrentUserPage = FC {
             separator = true
 
             DrawerHeader {
+                style = jso {
+                    paddingTop = Insets.Common.SMALL
+                }
                 DrawerHeaderTitle {
-                    +"All Users"
+                    heading = Title3.create {
+                        +"All Users"
+                    }
                 }
             }
 
@@ -42,8 +50,20 @@ val CurrentUserPage = FC {
             }
         }
 
-        UserAlbumsTable {
-            this.userAlbums = userAlbums
+        div {
+            style = jso {
+                display = web.cssom.Display.flex
+                flexDirection = FlexDirection.column
+                padding = Insets.Common.SMALL
+            }
+
+            Title3 {
+                +"User info"
+            }
+
+            UserAlbumsTable {
+                this.userAlbums = userAlbums
+            }
         }
     }
 }
