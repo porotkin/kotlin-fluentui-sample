@@ -49,6 +49,7 @@ val UserAlbumsTable = FC<UserAlbumsTableProps> {
                     id = "title"
                     header = StringOrTemplateHeader("Album Title")
                     accessorFn = { row, _ -> row.title }
+                    cell = ColumnDefTemplate { AlbumTitleWithInlineInput.create { row = it.row } }
                 },
             )
             getCoreRowModel = getCoreRowModel()
@@ -64,6 +65,7 @@ val UserAlbumsTable = FC<UserAlbumsTableProps> {
                 borderCollapse = BorderCollapse.collapse
                 whiteSpace = WhiteSpace.nowrap
                 width = 100.pct
+                textAlignLast = TextAlignLast.center
             }
 
             thead {
