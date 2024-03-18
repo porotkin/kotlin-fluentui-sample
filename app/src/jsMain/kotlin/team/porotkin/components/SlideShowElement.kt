@@ -4,6 +4,7 @@ import js.import.import
 import js.objects.jso
 import react.*
 import react.dom.html.ReactHTML.div
+import team.porotkin.entities.AlbumPhotos
 import web.cssom.px
 
 // TODO: Duplicated from kotlin-slideshow to prevent bundling
@@ -42,3 +43,12 @@ val SlideShow = FC<SlideShowProps> { props ->
         }
     }
 }
+
+fun AlbumPhotos.toSlideShowValues() = this.map {
+    val value = jso<Image> {
+        src = it.url
+        alt = "preview for $${it.title}"
+    }
+
+    return@map value
+}.toTypedArray()
