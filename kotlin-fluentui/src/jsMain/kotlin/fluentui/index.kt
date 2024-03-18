@@ -648,3 +648,16 @@ external val dialogTitleClassNames: SlotClassNames<DialogTitleSlots>
  * making it basically unnecessary in cases where the trigger is outside of the `Dialog` component.
  */
 external val DialogTrigger: FC<DialogTriggerProps>
+
+/**
+ * Skeleton component - TODO: add more docs
+ */
+external val Skeleton: FC<SkeletonProps>
+
+external val skeletonClassNames: SlotClassNames<SkeletonSlots>
+
+external val SkeletonContextProvider: Provider<SkeletonContextValue?>
+
+external val SkeletonItem: ForwardRefComponent<SkeletonItemProps>
+
+external val skeletonItemClassNames: SlotClassNames<SkeletonItemSlots>
