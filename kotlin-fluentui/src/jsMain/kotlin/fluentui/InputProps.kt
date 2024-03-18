@@ -4,7 +4,7 @@
 package fluentui
 
 import react.Props
-import web.events.Event
+import web.events.EventHandler
 import web.html.HTMLInputElement
 
 
@@ -45,7 +45,7 @@ sealed external interface InputProps : InputSlots, Props {
     /**
      * Called when the user changes the input's value.
      */
-    var onChange: ((ev: Event<HTMLInputElement>, data: Any) -> Unit)?
+    var onChange: EventHandler<HTMLInputElement>?
 
     /**
      * An input can have different text-based [types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#input_types)
