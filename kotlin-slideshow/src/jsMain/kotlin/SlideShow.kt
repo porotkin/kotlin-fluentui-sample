@@ -1,12 +1,14 @@
 @file:OptIn(ExperimentalJsExport::class)
 
 import js.import.import
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import react.*
 import react.dom.html.ReactHTML.div
+import react.dom.html.ReactHTML.h3
+import web.animations.requestAnimationFrame
 import web.dom.document
 import web.html.HTMLDivElement
-import web.html.HTMLElement
-import web.timers.setTimeout
 
 external interface SlideShowProps : Props {
     var loop: Boolean?
@@ -22,57 +24,58 @@ external interface Image {
     var id: Int
 }
 
+val MainJs = import<ComponentModule<*>>("@porotkin/slide-show")
+val Css = import<ComponentModule<*>>("@porotkin/slide-show/build/slide-show.css")
+
 @JsExport()
 val SlideShowElement = FC<SlideShowProps> { props ->
     val ref = useRef<HTMLDivElement>(null)
-    val viewRef = useRef<HTMLElement>(null)
-
-    import<ComponentModule<*>>("@porotkin/slide-show")
-    import<ComponentModule<*>>("@porotkin/slide-show/build/slide-show.css")
 
     useEffectOnce {
         val view = document.createElement("slide-show")
         ref.current?.appendChild(view)
 
-
-        val style = document.createElement("link")
-        style.asDynamic().rel = "stylesheet"
-        style.asDynamic().href = "slide-show-shadow.css"
-        view.shadowRoot?.appendChild(style)
-
-        props.values.let {
-            setTimeout({
-                it.forEach {
-                    val photo = document.createElement("img")
-                    with(photo.asDynamic()) {
-                        src = it.src
-                        alt = it.alt
-                        id = it.id
-                        draggable = false
+        val job = MainScope().launch {
+            MainJs
+                .then { Css }
+                .then {
+                    props.values.let {
+                        it.forEach {
+                            val photo = document.createElement("img")
+                            with(photo.asDynamic()) {
+                                src = it.src
+                                alt = it.alt
+                                id = it.id
+                                draggable = false
+                            }
+                            view.appendChild(photo)
+                        }
                     }
-                    view.appendChild(photo)
+                }.then {
+                    val style = document.createElement("link")
+                    style.asDynamic().rel = "stylesheet"
+                    style.asDynamic().href = "slide-show-shadow.css"
+                    view.shadowRoot?.appendChild(style)
+                }.then {
+                    requestAnimationFrame {
+                        with(view.asDynamic()) {
+                            loop = false
+                            controls = props.controls ?: "navigation"
+                            active = props.active
+                        }
+                    }
                 }
-            }, 500)
         }
 
-        viewRef.current = view
-    }
-
-    useEffect(viewRef.current) {
-        if (viewRef.current == null) {
-            return@useEffect
+        cleanup {
+            job.cancel()
         }
-
-        setTimeout({
-            with(viewRef.current.asDynamic()) {
-                loop = false
-                controls = props.controls ?: "navigation"
-                active = props.active
-            }
-        }, 500)
     }
 
-    div {
-        this.ref = ref
+    Suspense {
+        fallback = h3.create { +"Web component is lazy-loading" }
+        div {
+            this.ref = ref
+        }
     }
 }
