@@ -1,0 +1,21 @@
+{
+  "name": "kotlin-slideshow",
+  "version": "0.0.1",
+  "main": "kotlin/kotlin-slideshow.js",
+  "devDependencies": {
+    "css-loader": "6.10.0",
+    "file-loader": "6.2.0",
+    "typescript": "5.0.4",
+    "webpack": "5.90.3",
+    "webpack-cli": "5.1.4"
+  },
+  "dependencies": {
+    "@porotkin/slide-show": "0.0.6",
+    "format-util": "^1.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}
