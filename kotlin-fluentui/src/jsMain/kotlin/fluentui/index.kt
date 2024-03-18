@@ -658,6 +658,6 @@ external val skeletonClassNames: SlotClassNames<SkeletonSlots>
 
 external val SkeletonContextProvider: Provider<SkeletonContextValue?>
 
-external val SkeletonItem: ForwardRefComponent<SkeletonItemProps>
+external val SkeletonItem: FC<SkeletonItemProps>
 
 external val skeletonItemClassNames: SlotClassNames<SkeletonItemSlots>

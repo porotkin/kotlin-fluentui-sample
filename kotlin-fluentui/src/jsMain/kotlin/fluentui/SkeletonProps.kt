@@ -3,14 +3,14 @@
 
 package fluentui
 
-import react.Props
+import react.PropsWithChildren
 
 
 /**
  * Skeleton Props
  */
 
-sealed external interface SkeletonProps : SkeletonSlots, Props {
+sealed external interface SkeletonProps : SkeletonSlots, PropsWithChildren {
     /**
      * The animation type for the Skeleton
      * @defaultValue wave

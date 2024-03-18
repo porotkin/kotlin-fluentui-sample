@@ -3,12 +3,14 @@
 
 package fluentui
 
+import react.Props
+
 
 /**
  * SkeletonItem Props
  */
 
-sealed external interface SkeletonItemProps : SkeletonItemSlots {
+sealed external interface SkeletonItemProps : SkeletonItemSlots, Props {
     /**
      * Sets the animation of the SkeletonItem
      * @default wave
@@ -33,5 +35,5 @@ sealed external interface SkeletonItemProps : SkeletonItemSlots {
      * Sets the shape of the SkeletonItem.
      * @default rectangle
      */
-    var shape: (Temp111)?
+    var shape: (Temp109)?
 }
