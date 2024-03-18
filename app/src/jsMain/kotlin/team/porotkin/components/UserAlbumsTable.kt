@@ -1,6 +1,8 @@
 package team.porotkin.components
 
 import emotion.react.css
+import fluentui.Skeleton
+import fluentui.SkeletonItem
 import js.array.ReadonlyArray
 import js.objects.jso
 import react.FC
@@ -19,6 +21,7 @@ import tanstack.react.table.useReactTable
 import tanstack.table.core.*
 import team.porotkin.entities.UserAlbum
 import team.porotkin.hooks.useAlbumPhotos
+import team.porotkin.utils.Insets
 import web.cssom.*
 import web.cssom.Auto.Companion.auto
 import web.cssom.LineStyle.Companion.solid
@@ -128,8 +131,33 @@ val SubTable = FC<SubTableProps> {
     val albumPhotosQueryResult = useAlbumPhotos(it.row.original.id)
 
     if (albumPhotosQueryResult.isLoading) {
-        return@FC div {
-            +"Loading data for ${it.row.original.title}"
+        return@FC tr {
+            td {
+                colSpan = 3
+
+                Skeleton {
+                    div {
+                        style = jso {
+                            display = Display.flex
+                            flexDirection = FlexDirection.column
+                            gap = Insets.Common.SMALL
+                        }
+
+                        SkeletonItem {
+                            size = 24
+                        }
+                        SkeletonItem {
+                            size = 48
+                        }
+                        SkeletonItem {
+                            size = 48
+                        }
+                        SkeletonItem {
+                            size = 48
+                        }
+                    }
+                }
+            }
         }
     }
 
