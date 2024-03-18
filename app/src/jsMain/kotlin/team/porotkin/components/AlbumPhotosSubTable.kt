@@ -1,6 +1,10 @@
 package team.porotkin.components
 
 import emotion.react.css
+import fluentui.*
+import fluentui.DialogTriggerAction.Companion.close
+import fluentui.Temp49.Companion.subtle
+import fluentui.icons.Dismiss24Regular
 import js.objects.jso
 import react.FC
 import react.Fragment
@@ -47,17 +51,44 @@ val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
                     accessorFn = { row, _ -> row.thumbnailUrl }
                     cell = ColumnDefTemplate { template ->
                         Fragment.create {
-                            img {
-                                style = jso {
-                                    cursor = Cursor.zoomIn
+                            Dialog {
+                                DialogTrigger {
+                                    disableButtonEnhancement = true
+
+                                    img {
+                                        style = jso {
+                                            cursor = Cursor.zoomIn
+                                        }
+                                        src = template.row.original.thumbnailUrl
+                                        alt = "preview for ${template.row.original.title}"
+                                        draggable = false
+                                    }
                                 }
-                                src = template.row.original.thumbnailUrl
-                                alt = "preview for ${template.row.original.title}"
-                                draggable = false
+
+                                DialogSurface {
+                                    DialogBody {
+                                        DialogTitle {
+                                            action = DialogTrigger.create {
+                                                action = close
+
+                                                Button {
+                                                    appearance = subtle
+                                                    icon = Dismiss24Regular.create()
+                                                }
+                                            }
+
+                                            +"Image Viewer"
+                                        }
+                                        DialogContent {
+                                            SlideShow {
+                                                values = it.albumPhotos.toSlideShowValues()
+                                            }
+                                        }
+                                    }
+                                }
                             }
-//                            SlideShow {
-//                                values = it.albumPhotos.toSlideShowValues()
-//                            }
+
+
                         }
                     }
                 },
