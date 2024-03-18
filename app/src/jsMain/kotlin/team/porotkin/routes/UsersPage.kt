@@ -10,14 +10,29 @@ import react.dom.html.ReactHTML.div
 import react.router.dom.Link
 import react.router.useNavigate
 import team.porotkin.hooks.useUsers
+import team.porotkin.utils.Insets
 import web.cssom.Display
 import web.cssom.FlexDirection
+import web.cssom.fr
 
 val UsersPage = FC {
     val users = useUsers()
     val navigate = useNavigate()
 
     ReactHTML.div {
+        style = jso {
+            display = Display.grid
+            marginLeft = Insets.Card.MEDIUM
+            marginRight = Insets.Card.MEDIUM
+
+            marginTop = Insets.Card.SMALL
+            marginBottom = Insets.Card.SMALL
+
+            gridTemplateRows = web.cssom.repeat(3, 1.fr)
+            gridTemplateColumns = web.cssom.repeat(3, 1.fr)
+            gap = Insets.Card.SMALL
+        }
+
         users.forEach { user ->
             Card {
                 CardHeader {
