@@ -11,6 +11,7 @@ import team.porotkin.hooks.useUserAlbumsCoroutine
 import team.porotkin.hooks.useUsers
 import team.porotkin.utils.Insets
 import web.cssom.FlexDirection
+import web.cssom.pct
 
 val CurrentUserPage = FC {
     val navigate = useNavigate()
@@ -20,6 +21,7 @@ val CurrentUserPage = FC {
     div {
         style = jso {
             display = web.cssom.Display.flex
+            height = 91.pct
         }
 
         InlineDrawer {
