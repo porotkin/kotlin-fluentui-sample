@@ -1,9 +1,10 @@
 package team.porotkin.components
 
-import fluentui.Title1
+import fluentui.Title2
 import js.objects.jso
 import react.FC
 import react.dom.html.ReactHTML.div
+import team.porotkin.utils.Insets
 import web.cssom.NamedColor
 import web.cssom.pct
 import web.cssom.px
@@ -12,13 +13,14 @@ val Header = FC {
     div {
         style = jso {
             width = 100.pct
-            height = 48.px
+            height = 65.px
             backgroundColor = NamedColor.blueviolet
+            paddingTop = Insets.Common.SMALL
         }
 
-        Title1 {
+        Title2 {
             style = jso {
-                marginLeft = 23.px
+                marginLeft = Insets.Common.MEDIUM
                 color = NamedColor.white
             }
 

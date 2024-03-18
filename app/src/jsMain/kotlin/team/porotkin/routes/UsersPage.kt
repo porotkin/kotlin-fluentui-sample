@@ -22,15 +22,15 @@ val UsersPage = FC {
     ReactHTML.div {
         style = jso {
             display = Display.grid
-            marginLeft = Insets.Card.MEDIUM
-            marginRight = Insets.Card.MEDIUM
+            marginLeft = Insets.Common.MEDIUM
+            marginRight = Insets.Common.MEDIUM
 
-            marginTop = Insets.Card.SMALL
-            marginBottom = Insets.Card.SMALL
+            marginTop = Insets.Common.SMALL
+            marginBottom = Insets.Common.SMALL
 
             gridTemplateRows = web.cssom.repeat(3, 1.fr)
             gridTemplateColumns = web.cssom.repeat(3, 1.fr)
-            gap = Insets.Card.SMALL
+            gap = Insets.Common.SMALL
         }
 
         users.forEach { user ->

@@ -10,6 +10,7 @@ import react.dom.html.ReactHTML.div
 import react.router.useParams
 import react.useMemo
 import team.porotkin.hooks.useUsers
+import team.porotkin.utils.Insets
 import web.cssom.Display
 import web.cssom.px
 
@@ -28,6 +29,9 @@ val Navigation = FC {
         style = jso {
             display = Display.flex
             gap = 25.px
+
+            marginLeft = Insets.Common.MEDIUM
+            marginTop = Insets.Common.SMALL
         }
 
         Breadcrumb {
