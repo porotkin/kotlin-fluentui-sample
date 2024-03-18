@@ -3,6 +3,8 @@
 
 package fluentui
 
+import react.PropsWithChildren
+
 // unhandled import: ComponentProps from "@fluentui/react-utilities" 
 // unhandled import: ComponentState from "@fluentui/react-utilities" 
 // unhandled import: ForwardRefComponent from "@fluentui/react-utilities" 
@@ -13,7 +15,7 @@ package fluentui
  * Slots available in the CardFooter component.
  */
 
-sealed external interface CardFooterSlots {
+sealed external interface CardFooterSlots : PropsWithChildren {
     /**
      * Root element of the component.
      */

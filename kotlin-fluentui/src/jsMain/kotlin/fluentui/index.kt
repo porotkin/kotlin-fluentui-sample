@@ -130,7 +130,7 @@ external val cardCSSVars: CardCSSVars
 /**
  * Component to render Button actions in a Card component.
  */
-external val CardFooter: ForwardRefComponent<CardFooterProps>
+external val CardFooter: FC<CardFooterProps>
 
 /**
  * Static CSS class names used internally for the component slots.
@@ -140,7 +140,7 @@ external val cardFooterClassNames: SlotClassNames<CardFooterSlots>
 /**
  * Component to render an image, text and an action in a Card component.
  */
-external val CardHeader: ForwardRefComponent<CardHeaderProps>
+external val CardHeader: FC<CardHeaderProps>
 
 /**
  * Static CSS class names used internally for the component slots.

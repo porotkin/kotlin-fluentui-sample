@@ -3,6 +3,8 @@
 
 package fluentui
 
+import react.ReactNode
+
 // unhandled import: DispatchWithoutAction from "react" 
 
 /**
@@ -27,7 +29,7 @@ package fluentui
  * NonNullable<Slot<typeof Label>> // Slot is a Label and will always be rendered (can't be set to null by the user)
  * ```
  */
-typealias Slot = Any? /* IsSingleton<Extract<Type, string>> extends true ? WithSlotShorthandValue<Type extends keyof JSX.IntrinsicElements ? {
+typealias Slot = ReactNode /* IsSingleton<Extract<Type, string>> extends true ? WithSlotShorthandValue<Type extends keyof JSX.IntrinsicElements ? {
     as?: Type;
 } & WithSlotRenderFunction<IntrinsicElementProps<Type>> : Type extends React_2.ComponentType<infer Props> ? WithSlotRenderFunction<Props> : Type> | {
     [As in AlternateAs]: {
