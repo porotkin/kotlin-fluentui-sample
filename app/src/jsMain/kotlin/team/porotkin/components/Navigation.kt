@@ -30,8 +30,8 @@ val Navigation = FC {
             display = Display.flex
             gap = 25.px
 
-            marginLeft = Insets.Common.MEDIUM
-            marginTop = Insets.Common.SMALL
+            paddingLeft = Insets.Common.MEDIUM
+            paddingTop = Insets.Common.SMALL
         }
 
         Breadcrumb {

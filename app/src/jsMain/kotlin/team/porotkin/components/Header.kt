@@ -20,7 +20,7 @@ val Header = FC {
 
         Title2 {
             style = jso {
-                marginLeft = Insets.Common.MEDIUM
+                paddingLeft = Insets.Common.MEDIUM
                 color = NamedColor.white
             }
 

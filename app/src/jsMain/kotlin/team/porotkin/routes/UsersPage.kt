@@ -22,11 +22,11 @@ val UsersPage = FC {
     ReactHTML.div {
         style = jso {
             display = Display.grid
-            marginLeft = Insets.Common.MEDIUM
-            marginRight = Insets.Common.MEDIUM
+            paddingLeft = Insets.Common.MEDIUM
+            paddingRight = Insets.Common.MEDIUM
 
-            marginTop = Insets.Common.SMALL
-            marginBottom = Insets.Common.SMALL
+            paddingTop = Insets.Common.SMALL
+            paddingBottom = Insets.Common.SMALL
 
             gridTemplateRows = web.cssom.repeat(3, 1.fr)
             gridTemplateColumns = web.cssom.repeat(3, 1.fr)
