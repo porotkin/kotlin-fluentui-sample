@@ -67,6 +67,7 @@ val CurrentUserPage = FC {
                 display = web.cssom.Display.flex
                 flexDirection = FlexDirection.column
                 padding = Insets.Common.SMALL
+                width = 100.pct
             }
 
             Title3 {

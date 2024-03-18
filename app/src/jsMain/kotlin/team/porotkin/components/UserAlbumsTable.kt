@@ -23,7 +23,6 @@ import team.porotkin.entities.UserAlbum
 import team.porotkin.hooks.useAlbumPhotos
 import team.porotkin.utils.Insets
 import web.cssom.*
-import web.cssom.Auto.Companion.auto
 import web.cssom.LineStyle.Companion.solid
 import web.cssom.None.Companion.none
 
@@ -61,11 +60,10 @@ val UserAlbumsTable = FC<UserAlbumsTableProps> {
     div {
         table {
             css {
-                width = 400.px
                 borderSpacing = 0.px
                 borderCollapse = BorderCollapse.collapse
                 whiteSpace = WhiteSpace.nowrap
-                margin = auto
+                width = 100.pct
             }
 
             thead {

@@ -24,7 +24,6 @@ import tanstack.table.core.getCoreRowModel
 import team.porotkin.entities.AlbumPhoto
 import team.porotkin.entities.AlbumPhotos
 import web.cssom.*
-import web.cssom.Auto.Companion.auto
 import web.cssom.LineStyle.Companion.solid
 import web.cssom.None.Companion.none
 
@@ -76,11 +75,10 @@ val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
     div {
         table {
             css {
-                width = 400.px
                 borderSpacing = 0.px
                 borderCollapse = BorderCollapse.collapse
                 whiteSpace = WhiteSpace.nowrap
-                margin = auto
+                width = 100.pct
             }
 
             thead {
@@ -119,6 +117,7 @@ val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
                             td {
                                 css {
                                     padding = Padding(10.px, 12.px)
+                                    height = 175.px // Image height + insets
                                 }
 
                                 +renderCell(cell)
