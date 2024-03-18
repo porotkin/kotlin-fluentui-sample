@@ -2,13 +2,13 @@ package team.porotkin.routes
 
 import js.objects.jso
 import react.create
-import react.router.dom.createBrowserRouter
+import react.router.dom.createHashRouter
 
-val appRouter = createBrowserRouter(
-    arrayOf(
+val hashRouter = createHashRouter(
+    routes = arrayOf(
         jso {
             path = "/"
-            element = Root.create()
+            Component = Root
             children = arrayOf(
                 jso {
                     index = true
@@ -19,6 +19,6 @@ val appRouter = createBrowserRouter(
                     element = CurrentUserPage.create()
                 },
             )
-        }
-    )
+        },
+    ),
 )
