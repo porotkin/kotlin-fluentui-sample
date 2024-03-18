@@ -4,6 +4,8 @@
 package fluentui
 
 import react.PropsWithChildren
+import web.events.EventHandler
+import web.events.EventType
 
 // unhandled import: ComponentProps from "@fluentui/react-utilities" 
 // unhandled import: ComponentState from "@fluentui/react-utilities" 
@@ -89,4 +91,6 @@ sealed external interface CardProps : CardSlots, PropsWithChildren {
      * Callback to be called when the selected state value changes.
      */
     var onSelectionChange: ((event: CardOnSelectionChangeEvent, data: CardOnSelectData) -> Unit)?
+
+    var onClick: EventHandler<EventType<*>>?
 }
