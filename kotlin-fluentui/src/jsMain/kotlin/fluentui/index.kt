@@ -586,3 +586,65 @@ external val useSplitButtonStyles_unstable: (state: SplitButtonState) -> SplitBu
 external val useToggleButton_unstable: (props: ToggleButtonProps, ref: Ref<Any /* HTMLButtonElement | HTMLAnchorElement */>) -> ToggleButtonState
 
 external val useToggleButtonStyles_unstable: (state: ToggleButtonState) -> ToggleButtonState
+
+/**
+ * The `Dialog` root level component serves as an interface for interaction with all possible behaviors exposed.
+ * It provides context down the hierarchy to `children` compound components to allow functionality.
+ * This component expects to receive as children either a `DialogSurface` or a `DialogTrigger`
+ * and a `DialogSurface` (or some component that will eventually render one of those compound components)
+ * in this specific order
+ */
+external val Dialog: FC<DialogProps>
+
+/**
+ * `DialogActions` is a container for the actions of the dialog.
+ * Apart from styling, this component does not have other behavior.
+ */
+external val DialogActions: ForwardRefComponent<DialogActionsProps>
+
+external val dialogActionsClassNames: SlotClassNames<DialogActionsSlots>
+
+/**
+ * The `DialogBody` is a container where the content of the dialog is rendered.
+ * Apart from styling, this component does not have other behavior.
+ */
+external val DialogBody: ForwardRefComponent<DialogBodyProps>
+
+external val dialogBodyClassNames: SlotClassNames<DialogBodySlots>
+
+/**
+ * The `DialogContent` is a container where the content of the dialog is rendered.
+ * Apart from styling, this component does not have other behavior.
+ */
+external val DialogContent: ForwardRefComponent<DialogContentProps>
+
+external val dialogContentClassNames: SlotClassNames<DialogContentSlots>
+
+/**
+ * DialogSurface component represents the visual part of a `Dialog` as a whole,
+ * it contains everything that should be visible.
+ */
+external val DialogSurface: ForwardRefComponent<DialogSurfaceProps>
+
+external val dialogSurfaceClassNames: SlotClassNames<DialogSurfaceSlots>
+
+external val DialogSurfaceProvider: Provider<Boolean?>
+
+/**
+ * The `DialogTitle` component expects to have a title/header
+ * and when `Dialog` is `non-modal` a close (X icon) button is provided through `action` slot by default.
+ */
+external val DialogTitle: ForwardRefComponent<DialogTitleProps>
+
+external val dialogTitleClassNames: SlotClassNames<DialogTitleSlots>
+
+/**
+ * A non-visual component that wraps its child
+ * and configures them to be the trigger that will open or close a `Dialog`.
+ * This component should only accept one child.
+ *
+ * This component sole purpose is to avoid opting out of the internal controlled open state of a `Dialog`
+ * Besides being a trigger that opens/close a dialog through context this component doesn't do much,
+ * making it basically unnecessary in cases where the trigger is outside of the `Dialog` component.
+ */
+external val DialogTrigger: FC<DialogTriggerProps>
