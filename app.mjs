@@ -1,72 +1,60 @@
 import {
   createElement as createElement,
-  useEffect as useEffect,
   Fragment as Fragment,
-  useRef as useRef,
-  Suspense as Suspense,
-  useMemo as useMemo,
   lazy as lazy,
+  Suspense as Suspense,
+  useEffect as useEffect,
+  useMemo as useMemo,
+  useRef as useRef,
   useState as useState,
-} from 'react';
+} from 'react'
+import { flexRender as flexRender, useReactTable as useReactTable } from '@tanstack/react-table'
+import { createRoot as createRoot } from 'react-dom/client'
+import { QueryClientProvider as QueryClientProvider, useQuery as useQuery } from '@tanstack/react-query'
 import {
-  flexRender as flexRender,
-  useReactTable as useReactTable,
-} from '@tanstack/react-table';
-import { createRoot as createRoot } from 'react-dom/client';
-import {
-  QueryClientProvider as QueryClientProvider,
-  useQuery as useQuery,
-} from '@tanstack/react-query';
-import {
-  FluentProvider as FluentProvider,
-  teamsLightTheme as teamsLightTheme,
-  DialogTrigger as DialogTrigger,
-  Button as Button,
-  DialogTitle as DialogTitle,
-  DialogContent as DialogContent,
-  DialogBody as DialogBody,
-  DialogSurface as DialogSurface,
-  Dialog as Dialog,
-  Title2 as Title2,
-  BreadcrumbButton as BreadcrumbButton,
-  BreadcrumbItem as BreadcrumbItem,
-  BreadcrumbDivider as BreadcrumbDivider,
+  Body1 as Body1,
   Breadcrumb as Breadcrumb,
+  BreadcrumbButton as BreadcrumbButton,
+  BreadcrumbDivider as BreadcrumbDivider,
+  BreadcrumbItem as BreadcrumbItem,
+  Button as Button,
+  Caption1 as Caption1,
+  Card as Card,
+  CardFooter as CardFooter,
+  CardHeader as CardHeader,
+  Dialog as Dialog,
+  DialogBody as DialogBody,
+  DialogContent as DialogContent,
+  DialogSurface as DialogSurface,
+  DialogTitle as DialogTitle,
+  DialogTrigger as DialogTrigger,
+  DrawerBody as DrawerBody,
+  DrawerHeader as DrawerHeader,
+  DrawerHeaderTitle as DrawerHeaderTitle,
+  FluentProvider as FluentProvider,
+  InlineDrawer as InlineDrawer,
   Skeleton as Skeleton,
   SkeletonItem as SkeletonItem,
-  DrawerHeaderTitle as DrawerHeaderTitle,
+  teamsLightTheme as teamsLightTheme,
+  Title2 as Title2,
   Title3 as Title3,
-  Card as Card,
-  DrawerHeader as DrawerHeader,
-  DrawerBody as DrawerBody,
-  InlineDrawer as InlineDrawer,
-  Body1 as Body1,
-  Caption1 as Caption1,
-  CardHeader as CardHeader,
-  CardFooter as CardFooter,
-} from '@fluentui/react-components';
+} from '@fluentui/react-components'
 import {
-  RouterProvider as RouterProvider,
-  useParams as useParams,
-  useNavigate as useNavigate,
   Outlet as Outlet,
-} from 'react-router';
-import { QueryClient as QueryClient } from '@tanstack/query-core';
+  RouterProvider as RouterProvider,
+  useNavigate as useNavigate,
+  useParams as useParams,
+} from 'react-router'
+import { QueryClient as QueryClient } from '@tanstack/query-core'
+import { getCoreRowModel as getCoreRowModel, getExpandedRowModel as getExpandedRowModel } from '@tanstack/table-core'
 import {
-  getCoreRowModel as getCoreRowModel,
-  getExpandedRowModel as getExpandedRowModel,
-} from '@tanstack/table-core';
-import {
-  Dismiss24Regular as Dismiss24Regular,
-  ChevronRightRegular as ChevronRightRegular,
   ChevronDownRegular as ChevronDownRegular,
+  ChevronRightRegular as ChevronRightRegular,
+  Dismiss24Regular as Dismiss24Regular,
   GlobePersonRegular as GlobePersonRegular,
-} from '@fluentui/react-icons';
-import { css as css } from '@emotion/css';
-import {
-  createHashRouter as createHashRouter,
-  Link as Link,
-} from 'react-router-dom';
+} from '@fluentui/react-icons'
+import { css as css } from '@emotion/css'
+import { createHashRouter as createHashRouter, Link as Link } from 'react-router-dom'
 //region block: imports
 var clz32 = Math.clz32;
 var isView = ArrayBuffer.isView;
@@ -3392,7 +3380,7 @@ class DispatchedContinuation extends DispatchedTask {
             this.g8();
             this.ae_1;
             this.yd_1.n8(result);
-            $l$loop: while (eventLoop.ne()) {
+            while (eventLoop.ne()) {
             }
           } catch ($p) {
             if ($p instanceof Error) {
@@ -3708,7 +3696,7 @@ class iteratorFor$slambda extends CoroutineImpl {
           case 0:
             this.a8_1 = 5;
             this.z7_1 = 1;
-            continue $sm;
+            continue;
           case 1:
             var tmp_0 = this;
             var tmp_1 = this.rk_1.next();
@@ -3716,11 +3704,11 @@ class iteratorFor$slambda extends CoroutineImpl {
             if (this.tk_1 == null) {
               this.z7_1 = 4;
               var tmp_2 = this;
-              continue $sm;
+              continue;
             } else {
               this.uk_1 = this.tk_1;
               this.z7_1 = 2;
-              continue $sm;
+              continue;
             }
 
           case 2:
@@ -3731,10 +3719,10 @@ class iteratorFor$slambda extends CoroutineImpl {
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 3:
             this.z7_1 = 1;
-            continue $sm;
+            continue;
           case 4:
             return Unit_instance;
           case 5:
@@ -3778,7 +3766,7 @@ class SlideShowElement$lambda$lambda$slambda extends CoroutineImpl {
   }
   m8() {
     var suspendResult = this.b8_1;
-    $sm: do
+    do
       try {
         var tmp = this.z7_1;
         if (tmp === 0) {
@@ -3849,7 +3837,7 @@ class useUserAlbumsCoroutine$lambda$slambda extends CoroutineImpl {
   }
   m8() {
     var suspendResult = this.b8_1;
-    $sm: do
+    do
       try {
         var tmp = this.z7_1;
         if (tmp === 0) {
@@ -4554,7 +4542,7 @@ function joinTo(_this__u8e3s4, buffer, separator, prefix, postfix, limit, trunca
     if (limit < 0 ? true : count <= limit) {
       appendElement(buffer, element, transform);
     } else
-      break $l$loop;
+      break;
   }
   if (limit >= 0 ? count > limit : false) {
     buffer.m6(truncated);
@@ -4590,7 +4578,7 @@ function joinTo_0(_this__u8e3s4, buffer, separator, prefix, postfix, limit, trun
     if (limit < 0 ? true : count <= limit) {
       appendElement(buffer, element, transform);
     } else
-      break $l$loop;
+      break;
   }
   if (limit >= 0 ? count > limit : false) {
     buffer.m6(truncated);
@@ -4798,7 +4786,7 @@ function getObjectHashCode(obj) {
   // Inline function 'kotlin.js.jsIn' call
   if (!('kotlinHashCodeValue$' in obj)) {
     var hash = calculateRandomHash();
-    var descriptor = new Object();
+    var descriptor = {};
     descriptor.value = hash;
     descriptor.enumerable = false;
     Object.defineProperty(obj, 'kotlinHashCodeValue$', descriptor);
@@ -6784,7 +6772,7 @@ function tryWaitForChild($this, state, child, proposedUpdate) {
   var state_0 = state;
   var child_0 = child;
   var proposedUpdate_0 = proposedUpdate;
-  $l$1: do {
+  do {
     $l$0: do {
       var tmp = child_0.ah_1;
       // Inline function 'kotlinx.coroutines.asHandler' call
@@ -6805,7 +6793,7 @@ function tryWaitForChild($this, state, child, proposedUpdate) {
       state_0 = state_0;
       child_0 = nextChild_0;
       proposedUpdate_0 = proposedUpdate_0;
-      continue $l$0;
+
     }
      while (false);
   }
@@ -6824,7 +6812,7 @@ function nextChild(_this__u8e3s4, $this) {
   $l$loop: while (true) {
     // Inline function 'kotlinx.coroutines.internal.LinkedListNode.isRemoved' call
     if (!cur.qf_1) {
-      break $l$loop;
+      break;
     }
     // Inline function 'kotlinx.coroutines.internal.LinkedListNode.prevNode' call
     cur = cur.pf_1;
@@ -6834,7 +6822,7 @@ function nextChild(_this__u8e3s4, $this) {
     cur = cur.of_1;
     // Inline function 'kotlinx.coroutines.internal.LinkedListNode.isRemoved' call
     if (cur.qf_1)
-      continue $l$loop_0;
+      continue;
     if (cur instanceof ChildHandleNode)
       return cur;
     if (cur instanceof NodeList)
@@ -7021,7 +7009,7 @@ function resumeCancellableWith(_this__u8e3s4, result, onCancellation) {
               _this__u8e3s4.ae_1;
               _this__u8e3s4.yd_1.n8(result);
             }
-            $l$loop: while (eventLoop.ne()) {
+            while (eventLoop.ne()) {
             }
           } catch ($p) {
             if ($p instanceof Error) {
@@ -8620,7 +8608,7 @@ function toSlideShowValues(_this__u8e3s4) {
 }
 function SlideShowElement$lambda_0() {
   _init_properties_SlideShowElement_kt__kpz8k2();
-  var tmp = import('../../kotlin-slideshow/kotlin/kotlin-slideshow.mjs');
+  var tmp = import('./kotlin-slideshow.mjs')
   return tmp.then(SlideShowElement$lambda$lambda_1);
 }
 function SlideShowElement$lambda$lambda_1(it) {
