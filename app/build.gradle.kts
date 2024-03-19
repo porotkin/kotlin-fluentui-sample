@@ -20,6 +20,8 @@ dependencies {
     jsMainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutinesVersion")
 
     jsMainApi(npmv("@fluentui/react-components"))
+    jsMainApi(npmv("js-image-generator"))
+    jsMainApi(npmv("buffer"))
 
     jsMainApi(project(":kotlin-fluentui"))
     jsMainApi(project(":kotlin-slideshow"))
@@ -48,6 +50,14 @@ tasks {
             }
             config.output.path = '${project.rootDir.path + "/build/dist"}'
             config.output.clean = false
+            
+            config.resolve.fallback = {buffer: require.resolve('buffer')}
+            const webpack = require('webpack')
+            config.plugins.push(
+                new webpack.ProvidePlugin({
+                    Buffer: ['buffer', 'Buffer'],
+                }),   
+            )
         """
         )
     }
