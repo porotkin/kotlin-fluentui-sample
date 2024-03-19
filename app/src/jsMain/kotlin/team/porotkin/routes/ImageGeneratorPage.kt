@@ -7,6 +7,7 @@ import post
 import react.FC
 import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.img
+import react.useEffectOnce
 import react.useState
 import team.porotkin.utils.Insets
 import web.cssom.Display
@@ -16,18 +17,23 @@ import web.cssom.px
 import web.url.URL
 import web.workers.Worker
 
+val imageGenerator by lazy {
+    Worker(URL("../../worker-module/kotlin/worker-module.mjs", import.meta.url))
+}
+
 val ImageGeneratorPage = FC {
     var generatedImageUrl by useState<String?>(null)
-    val imageGenerator by lazy {
-        val worker = Worker(URL("../../worker-module/kotlin/worker-module.mjs", import.meta.url))
 
-        worker.onmessage = {
+    useEffectOnce {
+        imageGenerator.onmessage = {
             console.log("Message: ", it)
 
             generatedImageUrl = it.data.toString()
         }
 
-        worker
+        cleanup {
+            imageGenerator.terminate()
+        }
     }
 
     ReactHTML.div {
