@@ -4,6 +4,7 @@
 package fluentui
 
 import react.PropsWithChildren
+import react.PropsWithStyle
 
 // unhandled import: ComponentProps from "@fluentui/react-utilities" 
 // unhandled import: ComponentState from "@fluentui/react-utilities" 
@@ -18,7 +19,7 @@ import react.PropsWithChildren
  * InlineDrawer Props
  */
 
-sealed external interface InlineDrawerProps : InlineDrawerSlots, DrawerBaseProps, PropsWithChildren {
+sealed external interface InlineDrawerProps : InlineDrawerSlots, DrawerBaseProps, PropsWithChildren, PropsWithStyle {
     /**
      * Whether the drawer has a separator line.
      *

@@ -12,6 +12,7 @@ import team.porotkin.hooks.useUserAlbumsCoroutine
 import team.porotkin.hooks.useUsers
 import team.porotkin.utils.Insets
 import web.cssom.FlexDirection
+import web.cssom.Length.Companion.maxContent
 import web.cssom.pct
 
 val CurrentUserPage = FC {
@@ -30,6 +31,9 @@ val CurrentUserPage = FC {
         InlineDrawer {
             open = true
             separator = true
+            style = jso {
+                minWidth = maxContent
+            }
 
             DrawerHeader {
                 style = jso {
