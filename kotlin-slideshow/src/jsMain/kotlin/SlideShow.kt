@@ -1,6 +1,7 @@
 @file:OptIn(ExperimentalJsExport::class)
 
 import js.import.import
+import js.promise.catch
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import react.*
@@ -64,6 +65,8 @@ val SlideShowElement = FC<SlideShowProps> { props ->
                             active = props.active
                         }
                     }
+                }.catch {
+                    console.error(it)
                 }
         }
 
