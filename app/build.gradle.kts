@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalDistributionDsl
+
 plugins {
     id("io.github.turansky.kfc.application")
     id("io.github.turansky.kfc.wrappers")
@@ -21,6 +23,20 @@ dependencies {
 
     jsMainApi(project(":kotlin-fluentui"))
     jsMainApi(project(":kotlin-slideshow"))
+
+    jsMainApi(project(":worker-module"))
+}
+
+kotlin {
+    js(IR) {
+        browser {
+            @OptIn(ExperimentalDistributionDsl::class)
+            distribution {
+                outputDirectory.set(rootDir.resolve("build/dist"))
+            }
+        }
+        binaries.executable()
+    }
 }
 
 tasks {
@@ -30,6 +46,8 @@ tasks {
             if (config.devServer) {
                 config.devServer.historyApiFallback = true
             }
+            config.output.path = '${project.rootDir.path + "/build/dist"}'
+            config.output.clean = false
         """
         )
     }
