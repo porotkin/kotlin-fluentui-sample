@@ -30,10 +30,6 @@ val ImageGeneratorPage = FC {
 
             generatedImageUrl = it.data.toString()
         }
-
-        cleanup {
-            imageGenerator.terminate()
-        }
     }
 
     ReactHTML.div {
