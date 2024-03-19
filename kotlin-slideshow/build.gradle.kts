@@ -9,7 +9,5 @@ dependencies {
     jsMainImplementation(wrappers("react"))
     jsMainImplementation(wrappers("react-dom"))
 
-    jsMainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutinesVersion")
-
     jsMainApi(npmv("@porotkin/slide-show"))
 }

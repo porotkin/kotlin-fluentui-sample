@@ -2,8 +2,6 @@
 
 import js.import.import
 import js.promise.catch
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 import react.*
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h3
@@ -36,43 +34,37 @@ val SlideShowElement = FC<SlideShowProps> { props ->
         val view = document.createElement("slide-show")
         ref.current?.appendChild(view)
 
-        val job = MainScope().launch {
-            MainJs
-                .then { Css }
-                .then {
-                    props.values.let {
-                        it.forEach {
-                            val photo = document.createElement("img")
-                            with(photo.asDynamic()) {
-                                src = it.src
-                                alt = it.alt
-                                id = it.id
-                                draggable = false
-                            }
-                            view.appendChild(photo)
+        MainJs
+            .then { Css }
+            .then {
+                props.values.let {
+                    it.forEach {
+                        val photo = document.createElement("img")
+                        with(photo.asDynamic()) {
+                            src = it.src
+                            alt = it.alt
+                            id = it.id
+                            draggable = false
                         }
+                        view.appendChild(photo)
                     }
-                }.then {
-                    val style = document.createElement("link")
-                    style.asDynamic().rel = "stylesheet"
-                    style.asDynamic().href = "slide-show-shadow.css"
-                    view.shadowRoot?.appendChild(style)
-                }.then {
-                    requestAnimationFrame {
-                        with(view.asDynamic()) {
-                            loop = false
-                            controls = props.controls ?: "navigation"
-                            active = props.active
-                        }
-                    }
-                }.catch {
-                    console.error(it)
                 }
-        }
-
-        cleanup {
-            job.cancel()
-        }
+            }.then {
+                val style = document.createElement("link")
+                style.asDynamic().rel = "stylesheet"
+                style.asDynamic().href = "slide-show-shadow.css"
+                view.shadowRoot?.appendChild(style)
+            }.then {
+                requestAnimationFrame {
+                    with(view.asDynamic()) {
+                        loop = false
+                        controls = props.controls ?: "navigation"
+                        active = props.active
+                    }
+                }
+            }.catch {
+                console.error(it)
+            }
     }
 
     Suspense {
