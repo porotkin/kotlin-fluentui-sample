@@ -18,6 +18,10 @@ val hashRouter = createHashRouter(
                     path = ":userId"
                     element = CurrentUserPage.create()
                 },
+                jso {
+                    path = "/generate"
+                    element = ImageGeneratorPage.create()
+                },
             )
         },
     ),
