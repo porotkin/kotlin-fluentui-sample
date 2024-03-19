@@ -6,9 +6,9 @@ import js.objects.jso
 import react.FC
 import react.create
 import react.dom.html.ReactHTML
+import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.b
 import react.dom.html.ReactHTML.div
-import react.router.dom.Link
 import react.router.useNavigate
 import team.porotkin.hooks.useUsers
 import team.porotkin.utils.Insets
@@ -63,8 +63,8 @@ val UsersPage = FC {
                             }
                             div {
                                 +"Website: "
-                                Link {
-                                    to = user.website
+                                a {
+                                    href = "http://${user.website}"
 
                                     +user.website
                                 }
