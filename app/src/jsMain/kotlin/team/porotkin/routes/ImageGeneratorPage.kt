@@ -1,25 +1,34 @@
 package team.porotkin.routes
 
-import ImageGenerator
 import fluentui.Button
-import js.buffer.ArrayBuffer
-import js.buffer.ArrayBufferLike
+import js.import.import
 import js.objects.jso
-import js.typedarrays.Uint8Array
+import post
 import react.FC
 import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.img
 import react.useState
 import team.porotkin.utils.Insets
-import web.blob.Blob
 import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.Padding
 import web.cssom.px
 import web.url.URL
+import web.workers.Worker
 
 val ImageGeneratorPage = FC {
-    var generatedImage by useState<ArrayBuffer?>(null)
+    var generatedImageUrl by useState<String?>(null)
+    val imageGenerator by lazy {
+        val worker = Worker(URL("../../worker-module/kotlin/worker-module.mjs", import.meta.url))
+
+        worker.onmessage = {
+            console.log("Message: ", it)
+
+            generatedImageUrl = it.data.toString()
+        }
+
+        worker
+    }
 
     ReactHTML.div {
         style = jso {
@@ -33,30 +42,15 @@ val ImageGeneratorPage = FC {
                 width = 200.px
             }
             onClick = {
-                ImageGenerator.generateImage(
-                    width = 800,
-                    height = 600,
-                    quality = 80,
-                    callback = { err, image ->
-                        console.log(err)
-                        generatedImage = image.asDynamic().data.buffer
-                    }
-                )
+                imageGenerator.post("generateImage")
             }
 
             +"Generate image"
         }
 
-        if (generatedImage != null) {
+        if (generatedImageUrl != null) {
             img {
-                src = URL.createObjectURL(
-                    Blob(
-                        blobParts = arrayOf(Uint8Array(generatedImage.unsafeCast<ArrayBufferLike>())),
-                        options = jso {
-                            type = "image/jpeg"
-                        }
-                    )
-                )
+                src = generatedImageUrl
                 alt = "generated image"
                 width = 800.0
                 height = 600.0
