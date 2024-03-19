@@ -26,7 +26,7 @@ val ImageGeneratorPage = FC {
 
     useEffectOnce {
         imageGenerator.onmessage = {
-            console.log("Message: ", it)
+            console.log("Generated image url: ${it.data}")
 
             generatedImageUrl = it.data.toString()
         }
