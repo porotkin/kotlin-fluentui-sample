@@ -8,8 +8,7 @@ plugins {
 val coroutinesVersion = project.property("kotlinx-coroutines.version") as String
 
 dependencies {
-    jsMainImplementation(wrappers("react"))
-    jsMainImplementation(wrappers("react-dom"))
+    jsMainImplementation(wrappers("browser"))
 
     jsMainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutinesVersion")
 
