@@ -49,12 +49,6 @@ val SlideShowElement = FC<SlideShowProps> { props ->
                     view.appendChild(photo)
                 }
             }.then {
-                // TODO: Remove
-                val style = document.createElement("link")
-                style.asDynamic().rel = "stylesheet"
-                style.asDynamic().href = "slide-show-shadow.css"
-                view.shadowRoot?.appendChild(style)
-            }.then {
                 requestAnimationFrame {
                     with(view.asDynamic()) {
                         loop = false
