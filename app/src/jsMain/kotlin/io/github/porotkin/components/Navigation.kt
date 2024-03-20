@@ -42,11 +42,11 @@ val Navigation = FC {
                     +"Home"
                 }
             }
-            currentUserId?.let {
+            if (currentUserId != null) {
                 BreadcrumbDivider {}
                 BreadcrumbItem {
                     BreadcrumbButton {
-                        href = "#/$it"
+                        href = "#/$currentUserId"
 
                         +currentUser?.name.toString()
                     }
