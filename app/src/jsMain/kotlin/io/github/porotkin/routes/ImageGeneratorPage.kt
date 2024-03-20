@@ -4,7 +4,6 @@ import emotion.react.css
 import fluentui.Button
 import io.github.porotkin.utils.Insets
 import js.import.import
-import post
 import react.FC
 import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.img
@@ -17,7 +16,7 @@ import web.cssom.px
 import web.url.URL
 import web.workers.Worker
 
-val imageGenerator by lazy {
+private val imageGenerator by lazy {
     Worker(
         URL(
             "../../kotlin-image-generator/kotlin/kotlin-image-generator.mjs",
@@ -26,7 +25,7 @@ val imageGenerator by lazy {
     )
 }
 
-val ImageGeneratorPage = FC {
+internal val ImageGeneratorPage = FC {
     var generatedImageUrl by useState<String?>(null)
 
     useEffectOnce {
@@ -49,7 +48,7 @@ val ImageGeneratorPage = FC {
                 width = 200.px
             }
             onClick = {
-                imageGenerator.post("generateImage")
+                imageGenerator.postMessage("generateImage")
             }
 
             +"Generate image"

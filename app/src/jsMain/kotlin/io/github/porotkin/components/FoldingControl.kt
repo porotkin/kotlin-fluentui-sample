@@ -13,7 +13,7 @@ external interface FoldingControlProps : Props {
     var row: Row<*>
 }
 
-val FoldingControl = FC<FoldingControlProps> { props ->
+internal val FoldingControl = FC<FoldingControlProps> { props ->
     if (!props.row.getCanExpand()) {
         return@FC
     }

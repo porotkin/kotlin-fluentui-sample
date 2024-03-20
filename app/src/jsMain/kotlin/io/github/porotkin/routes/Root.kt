@@ -8,7 +8,7 @@ import react.dom.html.ReactHTML.div
 import react.router.Outlet
 import web.cssom.pct
 
-val Root = FC {
+internal val Root = FC {
     div {
         css {
             width = 100.pct

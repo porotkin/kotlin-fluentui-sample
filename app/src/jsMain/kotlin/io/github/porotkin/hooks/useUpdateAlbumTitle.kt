@@ -10,9 +10,9 @@ import tanstack.react.query.useQueryClient
 import web.http.BodyInit
 import web.http.fetchAsync
 
-typealias UpdateUserAlbum = (UserAlbum) -> Unit
+internal typealias UpdateUserAlbum = (UserAlbum) -> Unit
 
-fun useUpdateUserAlbum(): UpdateUserAlbum {
+internal fun useUpdateUserAlbum(): UpdateUserAlbum {
     val client = useQueryClient()
     return useMutation<UserAlbum, Error, UserAlbum, QueryKey>(
         options = jso {

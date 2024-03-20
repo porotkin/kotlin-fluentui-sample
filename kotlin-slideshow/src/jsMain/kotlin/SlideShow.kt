@@ -24,8 +24,8 @@ external interface Image {
     var id: Int
 }
 
-val MainJs = import<ComponentModule<*>>("@porotkin/slide-show")
-val Css = import<ComponentModule<*>>("@porotkin/slide-show/build/slide-show.css")
+internal val MainJs = import<ComponentModule<*>>("@porotkin/slide-show")
+internal val Css = import<ComponentModule<*>>("@porotkin/slide-show/build/slide-show.css")
 
 @JsExport()
 val SlideShowElement = FC<SlideShowProps> { props ->

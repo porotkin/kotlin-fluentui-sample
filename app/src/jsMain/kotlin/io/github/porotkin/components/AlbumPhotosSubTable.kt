@@ -35,7 +35,7 @@ external interface AlbumPhotosSubTableProps : Props {
     var albumPhotos: AlbumPhotos
 }
 
-val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
+internal val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
     val table = useReactTable<AlbumPhoto>(
         options = jso {
             data = it.albumPhotos

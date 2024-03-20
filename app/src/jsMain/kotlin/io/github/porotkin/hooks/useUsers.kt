@@ -8,7 +8,7 @@ import tanstack.query.core.QueryKey
 import tanstack.react.query.useQuery
 import web.http.fetchAsync
 
-fun useUsers(): Users {
+internal fun useUsers(): Users {
     val result = useQuery<Users, Error, Users, QueryKey>(
         options = jso {
             queryKey = USERS_QUERY_KEY

@@ -29,7 +29,7 @@ private fun main() {
     }
 }
 
-fun Worker.addMessageHandler(
+internal fun Worker.addMessageHandler(
     handler: String.() -> Unit,
 ): () -> Unit {
     return addEventHandler(MessageEvent.message<String, EventTarget>()) {
@@ -37,7 +37,7 @@ fun Worker.addMessageHandler(
     }
 }
 
-fun Worker.post(message: String) {
+internal fun Worker.post(message: String) {
     postMessage(message)
 }
 

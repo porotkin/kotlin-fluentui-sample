@@ -17,7 +17,7 @@ import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.fr
 
-val UsersPage = FC {
+internal val UsersPage = FC {
     val users = useUsers()
     val navigate = useNavigate()
 

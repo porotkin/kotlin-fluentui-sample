@@ -4,7 +4,7 @@ import js.objects.jso
 import react.create
 import react.router.dom.createHashRouter
 
-val hashRouter = createHashRouter(
+internal val hashRouter = createHashRouter(
     routes = arrayOf(
         jso {
             path = "/"

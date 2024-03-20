@@ -14,7 +14,7 @@ import tanstack.query.core.QueryKey
 import tanstack.react.query.useQuery
 import web.http.fetchAsync
 
-fun useUserAlbums(): UserAlbums {
+internal fun useUserAlbums(): UserAlbums {
     val currentUserId = useParams()["userId"]
 
     val result = useQuery<UserAlbums, Error, UserAlbums, QueryKey>(
@@ -27,7 +27,7 @@ fun useUserAlbums(): UserAlbums {
     return result.data ?: emptyArray()
 }
 
-fun useUserAlbumsCoroutine(): UserAlbums {
+internal fun useUserAlbumsCoroutine(): UserAlbums {
     val currentUserId = useParams()["userId"]
     var userAlbums by useState<UserAlbums>(emptyArray())
 

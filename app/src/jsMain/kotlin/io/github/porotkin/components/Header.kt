@@ -9,7 +9,7 @@ import web.cssom.NamedColor
 import web.cssom.pct
 import web.cssom.px
 
-val Header = FC {
+internal val Header = FC {
     div {
         css {
             width = 100.pct

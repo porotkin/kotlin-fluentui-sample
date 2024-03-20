@@ -30,7 +30,7 @@ external interface UserAlbumsTableProps : Props {
     var userAlbums: ReadonlyArray<UserAlbum>
 }
 
-val UserAlbumsTable = FC<UserAlbumsTableProps> {
+internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
     val table = useReactTable<UserAlbum>(
         options = jso {
             data = it.userAlbums
@@ -127,7 +127,7 @@ external interface SubTableProps : Props {
     var row: Row<UserAlbum>
 }
 
-val SubTable = FC<SubTableProps> {
+private val SubTable = FC<SubTableProps> {
     val albumPhotosQueryResult = useAlbumPhotos(it.row.original.id)
 
     if (albumPhotosQueryResult.isLoading) {

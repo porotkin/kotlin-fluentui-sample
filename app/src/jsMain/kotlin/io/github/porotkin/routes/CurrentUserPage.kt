@@ -15,7 +15,7 @@ import web.cssom.FlexDirection
 import web.cssom.Length.Companion.maxContent
 import web.cssom.pct
 
-val CurrentUserPage = FC {
+internal val CurrentUserPage = FC {
     val navigate = useNavigate()
     val users = useUsers()
     val userAlbums = useUserAlbumsCoroutine() // useUserAlbums()

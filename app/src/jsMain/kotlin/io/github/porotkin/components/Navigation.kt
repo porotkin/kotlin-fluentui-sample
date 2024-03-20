@@ -14,7 +14,7 @@ import react.useMemo
 import web.cssom.Display
 import web.cssom.px
 
-val Navigation = FC {
+internal val Navigation = FC {
     val currentUserId = useParams()["userId"]
     val users = useUsers()
 

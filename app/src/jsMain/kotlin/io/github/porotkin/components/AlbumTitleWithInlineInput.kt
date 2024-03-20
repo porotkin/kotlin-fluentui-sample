@@ -17,7 +17,7 @@ external interface AlbumTitleWithInlineInputProps : Props {
     var row: Row<UserAlbum>
 }
 
-val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { props ->
+internal val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { props ->
     val updateUserAlbum = useUpdateUserAlbum()
 
     var value by useState(props.row.original.title)

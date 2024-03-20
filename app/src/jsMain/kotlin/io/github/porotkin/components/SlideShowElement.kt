@@ -23,13 +23,13 @@ external interface Image {
     var id: Int
 }
 
-val SlideShowElement = lazy {
+internal val SlideShowElement = lazy {
     import<ComponentModule<SlideShowProps>>("../../kotlin-slideshow/kotlin/kotlin-slideshow.mjs").then {
         return@then getDefaultizedSlideShow(it)
     }
 }
 
-val SlideShow = FC<SlideShowProps> { props ->
+internal val SlideShow = FC<SlideShowProps> { props ->
     Suspense {
         fallback = div.create { +"Loading album photos" }
         SlideShowElement {
@@ -40,7 +40,7 @@ val SlideShow = FC<SlideShowProps> { props ->
     }
 }
 
-fun AlbumPhotos.toSlideShowValues() = this.map {
+internal fun AlbumPhotos.toSlideShowValues() = this.map {
     val value = jso<Image> {
         src = it.url
         alt = "preview for $${it.title}"
