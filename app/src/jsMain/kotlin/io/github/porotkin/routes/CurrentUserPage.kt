@@ -54,7 +54,7 @@ val CurrentUserPage = FC {
                         gap = Insets.Common.SMALL
                     }
 
-                    users.forEach { user ->
+                    for (user in users) {
                         Card {
                             selected = user.id.toString() == currentUserId
                             onClick = { navigate("/${user.id}") }

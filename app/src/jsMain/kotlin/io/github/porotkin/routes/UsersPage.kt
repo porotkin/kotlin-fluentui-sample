@@ -35,7 +35,7 @@ val UsersPage = FC {
             gap = Insets.Common.SMALL
         }
 
-        users.forEach { user ->
+        for (user in users) {
             Card {
                 CardHeader {
                     image = GlobePersonRegular.create {

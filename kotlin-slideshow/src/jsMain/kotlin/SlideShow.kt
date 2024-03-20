@@ -37,13 +37,13 @@ val SlideShowElement = FC<SlideShowProps> { props ->
         MainJs
             .then { Css }
             .then {
-                props.values.let {
-                    it.forEach {
+                props.values.let { images ->
+                    for (image in images) {
                         val photo = document.createElement("img")
                         with(photo.asDynamic()) {
-                            src = it.src
-                            alt = it.alt
-                            id = it.id
+                            src = image.src
+                            alt = image.alt
+                            id = image.id
                             draggable = false
                         }
                         view.appendChild(photo)
