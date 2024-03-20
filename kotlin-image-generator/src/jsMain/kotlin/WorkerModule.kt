@@ -1,3 +1,4 @@
+import js.buffer.ArrayBuffer
 import js.buffer.ArrayBufferLike
 import js.objects.jso
 import js.typedarrays.Uint8Array
@@ -18,15 +19,8 @@ private fun main() {
                 height = 600,
                 quality = 80,
                 callback = { _, image ->
-                    val imageBuffer = image.asDynamic().data.buffer
-                    val imageUrl = URL.createObjectURL(
-                        Blob(
-                            blobParts = arrayOf(Uint8Array(imageBuffer.unsafeCast<ArrayBufferLike>())),
-                            options = jso {
-                                type = "image/jpeg"
-                            }
-                        )
-                    )
+                    val imageBuffer = image.getDataBuffer()
+                    val imageUrl = generateImageUrlFrom(imageBuffer)
 
                     self.post(imageUrl)
                 }
@@ -46,3 +40,19 @@ fun Worker.addMessageHandler(
 fun Worker.post(message: String) {
     postMessage(message)
 }
+
+private fun generateImageUrlFrom(imageBuffer: ArrayBuffer) = URL.createObjectURL(
+    Blob(
+        blobParts = arrayOf(
+            Uint8Array(
+                imageBuffer.unsafeCast<ArrayBufferLike>()
+            ),
+        ),
+        options = jso {
+            type = "image/jpeg"
+        }
+    )
+)
+
+private fun Blob.getDataBuffer(): ArrayBuffer =
+    this.asDynamic().data.buffer

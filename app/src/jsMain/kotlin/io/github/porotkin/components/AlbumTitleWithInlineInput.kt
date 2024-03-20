@@ -28,7 +28,7 @@ val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { props ->
         Input {
             defaultValue = value
             onChange = {
-                inputValue = it.asDynamic().target.value
+                inputValue = it.getValueFromEvent()
             }
         }
 
@@ -57,3 +57,6 @@ val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { props ->
         }
     }
 }
+
+private fun Any?.getValueFromEvent(): String =
+    this.asDynamic().target.value.unsafeCast<String>()

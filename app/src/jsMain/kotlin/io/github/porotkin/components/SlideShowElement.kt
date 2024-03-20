@@ -25,8 +25,7 @@ external interface Image {
 
 val SlideShowElement = lazy {
     import<ComponentModule<SlideShowProps>>("../../kotlin-slideshow/kotlin/kotlin-slideshow.mjs").then {
-        it.asDynamic().default = it.asDynamic().SlideShowElement.get()
-        return@then it
+        return@then getDefaultizedSlideShow(it)
     }
 }
 
@@ -50,3 +49,8 @@ fun AlbumPhotos.toSlideShowValues() = this.map {
 
     return@map value
 }.toTypedArray()
+
+private fun getDefaultizedSlideShow(it: ComponentModule<SlideShowProps>): ComponentModule<SlideShowProps> {
+    it.asDynamic().default = it.asDynamic().SlideShowElement.get()
+    return it
+}
