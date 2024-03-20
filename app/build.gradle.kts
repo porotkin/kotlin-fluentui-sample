@@ -20,7 +20,6 @@ dependencies {
     jsMainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutinesVersion")
 
     jsMainApi(npmv("@fluentui/react-components"))
-    jsMainApi(npmv("js-image-generator"))
     jsMainApi(npmv("buffer"))
 
     jsMainApi(project(":kotlin-fluentui"))
