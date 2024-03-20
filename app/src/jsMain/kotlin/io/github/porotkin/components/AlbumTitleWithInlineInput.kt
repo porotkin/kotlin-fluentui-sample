@@ -5,6 +5,8 @@ import fluentui.Input
 import fluentui.Temp49.Companion.transparent
 import fluentui.icons.PenRegular
 import io.github.porotkin.entities.UserAlbum
+import io.github.porotkin.hooks.useUpdateUserAlbum
+import js.objects.jso
 import react.FC
 import react.Props
 import react.create
@@ -16,6 +18,8 @@ external interface AlbumTitleWithInlineInputProps : Props {
 }
 
 val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { props ->
+    val updateUserAlbum = useUpdateUserAlbum()
+
     var value by useState(props.row.original.title)
     var editMode by useState(false)
     var inputValue by useState("")
@@ -32,6 +36,12 @@ val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { props ->
             onClick = {
                 value = inputValue
                 editMode = false
+                val changedUserAlbum: UserAlbum = jso {
+                    title = inputValue
+                    userId = props.row.original.userId
+                    id = props.row.original.id
+                }
+                updateUserAlbum(changedUserAlbum)
             }
             appearance = transparent
 
