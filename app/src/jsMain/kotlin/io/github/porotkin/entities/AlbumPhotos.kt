@@ -1,5 +1,7 @@
 package io.github.porotkin.entities
 
+import js.array.ReadonlyArray
+
 external interface AlbumPhoto {
     var id: Key
     var albumId: Key
@@ -8,4 +10,4 @@ external interface AlbumPhoto {
     var thumbnailUrl: String
 }
 
-typealias AlbumPhotos = Array<out AlbumPhoto>
+typealias AlbumPhotos = ReadonlyArray<AlbumPhoto>

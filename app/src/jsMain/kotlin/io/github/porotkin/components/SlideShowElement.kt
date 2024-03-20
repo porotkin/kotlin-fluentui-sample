@@ -1,6 +1,7 @@
 package io.github.porotkin.components
 
 import io.github.porotkin.entities.AlbumPhotos
+import js.array.ReadonlyArray
 import js.import.import
 import js.objects.jso
 import react.*
@@ -12,7 +13,7 @@ external interface SlideShowProps : Props {
     var active: String?
     var autoplay: Boolean?
     var controls: String?
-    var values: Array<out Image>
+    var values: ReadonlyArray<Image>
 }
 
 // TODO: Duplicated from kotlin-slideshow to prevent bundling

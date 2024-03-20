@@ -1,5 +1,6 @@
 @file:OptIn(ExperimentalJsExport::class)
 
+import js.array.ReadonlyArray
 import js.import.import
 import js.promise.catch
 import react.*
@@ -14,7 +15,7 @@ external interface SlideShowProps : Props {
     var active: String?
     var autoplay: Boolean?
     var controls: String?
-    var values: Array<out Image>
+    var values: ReadonlyArray<Image>
 }
 
 external interface Image {
