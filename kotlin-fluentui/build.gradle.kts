@@ -13,3 +13,9 @@ dependencies {
     jsMainImplementation(wrappers("browser"))
     jsMainImplementation(wrappers("js"))
 }
+
+kotlin {
+    sourceSets {
+        sourceSets["jsMain"].kotlin.srcDir(projectDir.resolve("src/jsMain/generated"))
+    }
+}
