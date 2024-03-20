@@ -1,11 +1,11 @@
 package io.github.porotkin.routes
 
+import emotion.react.css
 import fluentui.*
 import fluentui.icons.GlobePersonRegular
 import io.github.porotkin.hooks.useUsers
 import io.github.porotkin.utils.Insets
 import io.github.porotkin.utils.Sizes
-import js.objects.jso
 import react.FC
 import react.create
 import react.dom.html.ReactHTML
@@ -22,7 +22,7 @@ val UsersPage = FC {
     val navigate = useNavigate()
 
     ReactHTML.div {
-        style = jso {
+        css {
             display = Display.grid
             paddingLeft = Insets.Common.MEDIUM
             paddingRight = Insets.Common.MEDIUM
@@ -39,7 +39,7 @@ val UsersPage = FC {
             Card {
                 CardHeader {
                     image = GlobePersonRegular.create {
-                        style = jso {
+                        css {
                             width = Sizes.CardImage.LARGE
                             height = Sizes.CardImage.LARGE
                         }
@@ -51,7 +51,7 @@ val UsersPage = FC {
                     }
                     description = Caption1.create {
                         div {
-                            style = jso {
+                            css {
                                 display = Display.flex
                                 flexDirection = FlexDirection.column
                             }

@@ -3,6 +3,6 @@
 package fluentui.icons
 
 import react.FC
-import react.PropsWithStyle
+import react.PropsWithClassName
 
-external val GlobePersonRegular: FC<PropsWithStyle> = definedExternally
+external val GlobePersonRegular: FC<PropsWithClassName> = definedExternally

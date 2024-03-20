@@ -56,9 +56,10 @@ val AlbumPhotosSubTable = FC<AlbumPhotosSubTableProps> {
                                     disableButtonEnhancement = true
 
                                     img {
-                                        style = jso {
+                                        css {
                                             cursor = Cursor.zoomIn
                                         }
+
                                         src = template.row.original.thumbnailUrl
                                         alt = "preview for ${template.row.original.title}"
                                         draggable = false

@@ -4,7 +4,7 @@
 package fluentui
 
 import react.PropsWithChildren
-import react.PropsWithStyle
+import react.PropsWithClassName
 
 // unhandled import: ComponentProps from "@fluentui/react-utilities" 
 // unhandled import: ComponentState from "@fluentui/react-utilities" 
@@ -17,7 +17,7 @@ import react.PropsWithStyle
  * Text Props
  */
 
-sealed external interface TextProps : TextSlots, PropsWithChildren, PropsWithStyle {
+sealed external interface TextProps : TextSlots, PropsWithChildren, PropsWithClassName {
     /**
      * Aligns text based on the parent container.
      *

@@ -1,9 +1,9 @@
 package io.github.porotkin.routes
 
+import emotion.react.css
 import fluentui.Button
 import io.github.porotkin.utils.Insets
 import js.import.import
-import js.objects.jso
 import post
 import react.FC
 import react.dom.html.ReactHTML
@@ -38,14 +38,14 @@ val ImageGeneratorPage = FC {
     }
 
     ReactHTML.div {
-        style = jso {
+        css {
             padding = Padding(Insets.Common.SMALL, Insets.Common.MEDIUM)
             display = Display.flex
             flexDirection = FlexDirection.column
             gap = Insets.Common.SMALL
         }
         Button {
-            style = jso {
+            css {
                 width = 200.px
             }
             onClick = {

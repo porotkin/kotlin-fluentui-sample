@@ -1,11 +1,11 @@
 package io.github.porotkin.routes
 
+import emotion.react.css
 import fluentui.*
 import io.github.porotkin.components.UserAlbumsTable
 import io.github.porotkin.hooks.useUserAlbumsCoroutine
 import io.github.porotkin.hooks.useUsers
 import io.github.porotkin.utils.Insets
-import js.objects.jso
 import react.FC
 import react.create
 import react.dom.html.ReactHTML.div
@@ -23,7 +23,7 @@ val CurrentUserPage = FC {
     val currentUserId = useParams()["userId"]
 
     div {
-        style = jso {
+        css {
             display = web.cssom.Display.flex
             height = 91.pct
         }
@@ -31,12 +31,12 @@ val CurrentUserPage = FC {
         InlineDrawer {
             open = true
             separator = true
-            style = jso {
+            css {
                 minWidth = maxContent
             }
 
             DrawerHeader {
-                style = jso {
+                css {
                     paddingTop = Insets.Common.SMALL
                 }
                 DrawerHeaderTitle {
@@ -48,7 +48,7 @@ val CurrentUserPage = FC {
 
             DrawerBody {
                 div {
-                    style = jso {
+                    css {
                         display = web.cssom.Display.flex
                         flexDirection = FlexDirection.column
                         gap = Insets.Common.SMALL
@@ -67,7 +67,7 @@ val CurrentUserPage = FC {
         }
 
         div {
-            style = jso {
+            css {
                 display = web.cssom.Display.flex
                 flexDirection = FlexDirection.column
                 padding = Insets.Common.SMALL

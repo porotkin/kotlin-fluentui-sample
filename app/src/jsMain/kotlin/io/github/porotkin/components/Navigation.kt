@@ -1,12 +1,12 @@
 package io.github.porotkin.components
 
+import emotion.react.css
 import fluentui.Breadcrumb
 import fluentui.BreadcrumbButton
 import fluentui.BreadcrumbDivider
 import fluentui.BreadcrumbItem
 import io.github.porotkin.hooks.useUsers
 import io.github.porotkin.utils.Insets
-import js.objects.jso
 import react.FC
 import react.dom.html.ReactHTML.div
 import react.router.useParams
@@ -26,7 +26,7 @@ val Navigation = FC {
 
 
     div {
-        style = jso {
+        css {
             display = Display.flex
             gap = 25.px
 

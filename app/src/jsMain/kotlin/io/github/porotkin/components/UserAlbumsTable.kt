@@ -137,7 +137,7 @@ val SubTable = FC<SubTableProps> {
 
                 Skeleton {
                     div {
-                        style = jso {
+                        css {
                             display = Display.flex
                             flexDirection = FlexDirection.column
                             gap = Insets.Common.SMALL
