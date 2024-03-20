@@ -29,4 +29,4 @@ rootProject.name = "kotlin-fluentui-sample"
 include("app")
 include("kotlin-fluentui")
 include("kotlin-slideshow")
-include("worker-module")
+include("kotlin-image-generator")

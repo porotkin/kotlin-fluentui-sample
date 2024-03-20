@@ -26,7 +26,7 @@ dependencies {
     jsMainApi(project(":kotlin-fluentui"))
     jsMainApi(project(":kotlin-slideshow"))
 
-    jsMainApi(project(":worker-module"))
+    jsMainApi(project(":kotlin-image-generator"))
 }
 
 kotlin {

@@ -1,6 +1,4 @@
 plugins {
-    id("io.github.sgrishchenko.karakum")
-
     id("io.github.turansky.kfc.worker")
     id("io.github.turansky.kfc.wrappers")
 }

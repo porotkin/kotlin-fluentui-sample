@@ -18,7 +18,12 @@ import web.url.URL
 import web.workers.Worker
 
 val imageGenerator by lazy {
-    Worker(URL("../../worker-module/kotlin/worker-module.mjs", import.meta.url))
+    Worker(
+        URL(
+            "../../kotlin-image-generator/kotlin/kotlin-image-generator.mjs",
+            import.meta.url,
+        )
+    )
 }
 
 val ImageGeneratorPage = FC {
