@@ -1,4 +1,4 @@
-package team.porotkin.utils
+package io.github.porotkin.utils
 
 import web.cssom.px
 

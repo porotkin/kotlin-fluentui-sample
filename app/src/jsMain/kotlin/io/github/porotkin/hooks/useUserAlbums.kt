@@ -1,5 +1,7 @@
-package team.porotkin.hooks
+package io.github.porotkin.hooks
 
+import io.github.porotkin.USER_ALBUMS_QUERY_KEY
+import io.github.porotkin.entities.UserAlbums
 import js.objects.jso
 import js.promise.Promise
 import kotlinx.coroutines.MainScope
@@ -10,8 +12,6 @@ import react.useMemo
 import react.useState
 import tanstack.query.core.QueryKey
 import tanstack.react.query.useQuery
-import team.porotkin.USER_ALBUMS_QUERY_KEY
-import team.porotkin.entities.UserAlbums
 import web.http.fetchAsync
 
 fun useUserAlbums(): UserAlbums {

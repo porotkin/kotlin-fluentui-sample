@@ -1,12 +1,12 @@
-package team.porotkin.hooks
+package io.github.porotkin.hooks
 
+import io.github.porotkin.USER_ALBUMS_QUERY_KEY
+import io.github.porotkin.entities.AlbumPhotos
+import io.github.porotkin.entities.Key
 import js.objects.jso
 import js.promise.Promise
 import tanstack.query.core.QueryKey
 import tanstack.react.query.useQuery
-import team.porotkin.USER_ALBUMS_QUERY_KEY
-import team.porotkin.entities.AlbumPhotos
-import team.porotkin.entities.Key
 import web.http.fetchAsync
 
 data class AlbumPhotosQueryResult(

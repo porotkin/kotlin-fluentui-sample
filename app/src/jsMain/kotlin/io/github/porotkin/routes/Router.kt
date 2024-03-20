@@ -1,4 +1,4 @@
-package team.porotkin.routes
+package io.github.porotkin.routes
 
 import js.objects.jso
 import react.create

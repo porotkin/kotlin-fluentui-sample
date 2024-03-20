@@ -1,8 +1,11 @@
-package team.porotkin.components
+package io.github.porotkin.components
 
 import emotion.react.css
 import fluentui.Skeleton
 import fluentui.SkeletonItem
+import io.github.porotkin.entities.UserAlbum
+import io.github.porotkin.hooks.useAlbumPhotos
+import io.github.porotkin.utils.Insets
 import js.array.ReadonlyArray
 import js.objects.jso
 import react.FC
@@ -19,9 +22,6 @@ import tanstack.react.table.renderCell
 import tanstack.react.table.renderHeader
 import tanstack.react.table.useReactTable
 import tanstack.table.core.*
-import team.porotkin.entities.UserAlbum
-import team.porotkin.hooks.useAlbumPhotos
-import team.porotkin.utils.Insets
 import web.cssom.*
 import web.cssom.LineStyle.Companion.solid
 import web.cssom.None.Companion.none

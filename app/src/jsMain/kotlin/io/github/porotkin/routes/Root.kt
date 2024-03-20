@@ -1,11 +1,11 @@
-package team.porotkin.routes
+package io.github.porotkin.routes
 
+import io.github.porotkin.components.Header
+import io.github.porotkin.components.Navigation
 import js.objects.jso
 import react.FC
 import react.dom.html.ReactHTML.div
 import react.router.Outlet
-import team.porotkin.components.Header
-import team.porotkin.components.Navigation
 import web.cssom.pct
 
 val Root = FC {

@@ -1,4 +1,4 @@
-package team.porotkin
+package io.github.porotkin
 
 import tanstack.query.core.QueryKey
 

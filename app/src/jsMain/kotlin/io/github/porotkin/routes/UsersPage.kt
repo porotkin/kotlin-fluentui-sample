@@ -1,7 +1,10 @@
-package team.porotkin.routes
+package io.github.porotkin.routes
 
 import fluentui.*
 import fluentui.icons.GlobePersonRegular
+import io.github.porotkin.hooks.useUsers
+import io.github.porotkin.utils.Insets
+import io.github.porotkin.utils.Sizes
 import js.objects.jso
 import react.FC
 import react.create
@@ -10,9 +13,6 @@ import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.b
 import react.dom.html.ReactHTML.div
 import react.router.useNavigate
-import team.porotkin.hooks.useUsers
-import team.porotkin.utils.Insets
-import team.porotkin.utils.Sizes
 import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.fr

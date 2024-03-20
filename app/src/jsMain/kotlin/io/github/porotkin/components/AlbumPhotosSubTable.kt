@@ -1,10 +1,12 @@
-package team.porotkin.components
+package io.github.porotkin.components
 
 import emotion.react.css
 import fluentui.*
 import fluentui.DialogTriggerAction.Companion.close
 import fluentui.Temp49.Companion.subtle
 import fluentui.icons.Dismiss24Regular
+import io.github.porotkin.entities.AlbumPhoto
+import io.github.porotkin.entities.AlbumPhotos
 import js.objects.jso
 import react.FC
 import react.Fragment
@@ -25,8 +27,6 @@ import tanstack.table.core.ColumnDef
 import tanstack.table.core.ColumnDefTemplate
 import tanstack.table.core.StringOrTemplateHeader
 import tanstack.table.core.getCoreRowModel
-import team.porotkin.entities.AlbumPhoto
-import team.porotkin.entities.AlbumPhotos
 import web.cssom.*
 import web.cssom.LineStyle.Companion.solid
 import web.cssom.None.Companion.none

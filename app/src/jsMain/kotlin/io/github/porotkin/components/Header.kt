@@ -1,10 +1,10 @@
-package team.porotkin.components
+package io.github.porotkin.components
 
 import fluentui.Title2
+import io.github.porotkin.utils.Insets
 import js.objects.jso
 import react.FC
 import react.dom.html.ReactHTML.div
-import team.porotkin.utils.Insets
 import web.cssom.NamedColor
 import web.cssom.pct
 import web.cssom.px

@@ -1,16 +1,16 @@
-package team.porotkin.routes
+package io.github.porotkin.routes
 
 import fluentui.*
+import io.github.porotkin.components.UserAlbumsTable
+import io.github.porotkin.hooks.useUserAlbumsCoroutine
+import io.github.porotkin.hooks.useUsers
+import io.github.porotkin.utils.Insets
 import js.objects.jso
 import react.FC
 import react.create
 import react.dom.html.ReactHTML.div
 import react.router.useNavigate
 import react.router.useParams
-import team.porotkin.components.UserAlbumsTable
-import team.porotkin.hooks.useUserAlbumsCoroutine
-import team.porotkin.hooks.useUsers
-import team.porotkin.utils.Insets
 import web.cssom.FlexDirection
 import web.cssom.Length.Companion.maxContent
 import web.cssom.pct

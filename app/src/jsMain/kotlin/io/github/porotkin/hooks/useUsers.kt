@@ -1,11 +1,11 @@
-package team.porotkin.hooks
+package io.github.porotkin.hooks
 
+import io.github.porotkin.USERS_QUERY_KEY
+import io.github.porotkin.entities.Users
 import js.objects.jso
 import js.promise.Promise
 import tanstack.query.core.QueryKey
 import tanstack.react.query.useQuery
-import team.porotkin.USERS_QUERY_KEY
-import team.porotkin.entities.Users
 import web.http.fetchAsync
 
 fun useUsers(): Users {

@@ -1,15 +1,15 @@
-package team.porotkin.components
+package io.github.porotkin.components
 
 import fluentui.Button
 import fluentui.Input
 import fluentui.Temp49.Companion.transparent
 import fluentui.icons.PenRegular
+import io.github.porotkin.entities.UserAlbum
 import react.FC
 import react.Props
 import react.create
 import react.useState
 import tanstack.table.core.Row
-import team.porotkin.entities.UserAlbum
 
 external interface AlbumTitleWithInlineInputProps : Props {
     var row: Row<UserAlbum>

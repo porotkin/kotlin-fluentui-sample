@@ -1,7 +1,8 @@
-package team.porotkin
+package io.github.porotkin
 
 import fluentui.FluentProvider
 import fluentui.tokens.teamsLightTheme
+import io.github.porotkin.routes.hashRouter
 import react.FC
 import react.Props
 import react.create
@@ -9,7 +10,6 @@ import react.dom.client.createRoot
 import react.router.RouterProvider
 import tanstack.query.core.QueryClient
 import tanstack.react.query.QueryClientProvider
-import team.porotkin.routes.hashRouter
 import web.dom.document
 import web.html.HTML.div
 

@@ -1,6 +1,7 @@
-package team.porotkin.routes
+package io.github.porotkin.routes
 
 import fluentui.Button
+import io.github.porotkin.utils.Insets
 import js.import.import
 import js.objects.jso
 import post
@@ -9,7 +10,6 @@ import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.img
 import react.useEffectOnce
 import react.useState
-import team.porotkin.utils.Insets
 import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.Padding

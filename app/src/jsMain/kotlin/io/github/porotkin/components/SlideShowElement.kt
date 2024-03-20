@@ -1,10 +1,10 @@
-package team.porotkin.components
+package io.github.porotkin.components
 
+import io.github.porotkin.entities.AlbumPhotos
 import js.import.import
 import js.objects.jso
 import react.*
 import react.dom.html.ReactHTML.div
-import team.porotkin.entities.AlbumPhotos
 
 // TODO: Duplicated from kotlin-slideshow to prevent bundling
 external interface SlideShowProps : Props {

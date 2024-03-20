@@ -1,16 +1,16 @@
-package team.porotkin.components
+package io.github.porotkin.components
 
 import fluentui.Breadcrumb
 import fluentui.BreadcrumbButton
 import fluentui.BreadcrumbDivider
 import fluentui.BreadcrumbItem
+import io.github.porotkin.hooks.useUsers
+import io.github.porotkin.utils.Insets
 import js.objects.jso
 import react.FC
 import react.dom.html.ReactHTML.div
 import react.router.useParams
 import react.useMemo
-import team.porotkin.hooks.useUsers
-import team.porotkin.utils.Insets
 import web.cssom.Display
 import web.cssom.px
 

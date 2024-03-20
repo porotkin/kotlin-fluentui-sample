@@ -1,4 +1,4 @@
-package team.porotkin.components
+package io.github.porotkin.components
 
 import fluentui.Button
 import fluentui.Temp49.Companion.secondary

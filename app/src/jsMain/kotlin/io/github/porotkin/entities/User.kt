@@ -1,4 +1,4 @@
-package team.porotkin.entities
+package io.github.porotkin.entities
 
 external interface User {
     var id: Key
