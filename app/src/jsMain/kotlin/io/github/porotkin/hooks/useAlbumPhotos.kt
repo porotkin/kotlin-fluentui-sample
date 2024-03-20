@@ -1,6 +1,6 @@
 package io.github.porotkin.hooks
 
-import io.github.porotkin.USER_ALBUMS_QUERY_KEY
+import io.github.porotkin.ALBUM_PHOTOS_QUERY_KEY
 import io.github.porotkin.entities.AlbumPhotos
 import io.github.porotkin.entities.Key
 import js.objects.jso
@@ -17,7 +17,7 @@ internal data class AlbumPhotosQueryResult(
 internal fun useAlbumPhotos(albumId: Key): AlbumPhotosQueryResult {
     val result = useQuery<AlbumPhotos, Error, AlbumPhotos, QueryKey>(
         options = jso {
-            queryKey = QueryKey(USER_ALBUMS_QUERY_KEY, albumId)
+            queryKey = QueryKey(ALBUM_PHOTOS_QUERY_KEY, albumId)
             queryFn = { getAlbumPhotos(albumId) }
         },
     )
