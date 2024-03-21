@@ -13,6 +13,7 @@ import react.router.useNavigate
 import react.router.useParams
 import web.cssom.FlexDirection
 import web.cssom.Length.Companion.maxContent
+import web.cssom.Overflow
 import web.cssom.pct
 
 internal val CurrentUserPage = FC {
@@ -72,6 +73,7 @@ internal val CurrentUserPage = FC {
                 flexDirection = FlexDirection.column
                 padding = Insets.Common.SMALL
                 width = 100.pct
+                overflow = Overflow.scroll
             }
 
             Title3 {
