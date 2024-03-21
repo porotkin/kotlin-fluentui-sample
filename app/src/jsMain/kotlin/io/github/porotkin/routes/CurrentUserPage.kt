@@ -12,8 +12,8 @@ import react.dom.html.ReactHTML.div
 import react.router.useNavigate
 import react.router.useParams
 import web.cssom.FlexDirection
+import web.cssom.Globals.Companion.inherit
 import web.cssom.Length.Companion.maxContent
-import web.cssom.Overflow
 import web.cssom.pct
 
 internal val CurrentUserPage = FC {
@@ -26,7 +26,7 @@ internal val CurrentUserPage = FC {
     div {
         css {
             display = web.cssom.Display.flex
-            height = 91.pct
+            height = inherit
         }
 
         InlineDrawer {
@@ -34,6 +34,7 @@ internal val CurrentUserPage = FC {
             separator = true
             css {
                 minWidth = maxContent
+                height = inherit
             }
 
             DrawerHeader {
@@ -73,7 +74,7 @@ internal val CurrentUserPage = FC {
                 flexDirection = FlexDirection.column
                 padding = Insets.Common.SMALL
                 width = 100.pct
-                overflow = Overflow.scroll
+                height = inherit
             }
 
             Title3 {

@@ -6,6 +6,10 @@ import io.github.porotkin.components.Navigation
 import react.FC
 import react.dom.html.ReactHTML.div
 import react.router.Outlet
+import web.cssom.Display
+import web.cssom.FlexDirection
+import web.cssom.Globals.Companion.inherit
+import web.cssom.Overflow
 import web.cssom.pct
 
 internal val Root = FC {
@@ -13,11 +17,20 @@ internal val Root = FC {
         css {
             width = 100.pct
             height = 100.pct
+            display = Display.flex
+            flexDirection = FlexDirection.column
         }
 
         Header()
         Navigation()
 
-        Outlet()
+        div {
+            css {
+                height = inherit
+                overflow = Overflow.scroll
+            }
+
+            Outlet()
+        }
     }
 }

@@ -6,6 +6,7 @@ import io.github.porotkin.utils.Insets
 import react.FC
 import react.dom.html.ReactHTML.div
 import web.cssom.NamedColor
+import web.cssom.pct
 import web.cssom.px
 import web.cssom.vw
 
@@ -13,7 +14,8 @@ internal val Header = FC {
     div {
         css {
             width = 100.vw
-            height = 65.px
+            maxHeight = 65.px
+            height = 15.pct
             backgroundColor = NamedColor.blueviolet
             paddingTop = Insets.Common.SMALL
         }

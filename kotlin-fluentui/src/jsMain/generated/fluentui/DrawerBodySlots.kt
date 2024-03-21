@@ -4,6 +4,7 @@
 package fluentui
 
 import react.PropsWithChildren
+import react.PropsWithClassName
 
 // unhandled import: ComponentProps from "@fluentui/react-utilities" 
 // unhandled import: ComponentState from "@fluentui/react-utilities" 
@@ -15,6 +16,6 @@ import react.PropsWithChildren
 // unhandled import: SlotClassNames from "@fluentui/react-utilities" 
 
 
-sealed external interface DrawerBodySlots : PropsWithChildren {
+sealed external interface DrawerBodySlots : PropsWithChildren, PropsWithClassName {
     var root: Slot
 }

@@ -23,6 +23,7 @@ import tanstack.react.table.renderHeader
 import tanstack.react.table.useReactTable
 import tanstack.table.core.*
 import web.cssom.*
+import web.cssom.Globals.Companion.inherit
 import web.cssom.LineStyle.Companion.solid
 import web.cssom.None.Companion.none
 
@@ -150,6 +151,8 @@ internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
                 whiteSpace = WhiteSpace.nowrap
                 width = 100.pct
                 textAlignLast = TextAlignLast.center
+                overflow = Overflow.scroll
+                height = inherit
             }
 
             thead {

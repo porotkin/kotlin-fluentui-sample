@@ -12,6 +12,8 @@ import react.dom.html.ReactHTML.div
 import react.router.useParams
 import react.useMemo
 import web.cssom.Display
+import web.cssom.Padding
+import web.cssom.pct
 import web.cssom.px
 
 internal val Navigation = FC {
@@ -29,9 +31,10 @@ internal val Navigation = FC {
         css {
             display = Display.flex
             gap = 25.px
+            maxHeight = (32 + 15).px
+            height = 10.pct
 
-            paddingLeft = Insets.Common.MEDIUM
-            paddingTop = Insets.Common.SMALL
+            padding = Padding(Insets.Common.SMALL, Insets.Common.MEDIUM)
         }
 
         Breadcrumb {
