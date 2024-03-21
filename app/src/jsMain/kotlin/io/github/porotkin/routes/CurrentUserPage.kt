@@ -2,6 +2,8 @@ package io.github.porotkin.routes
 
 import emotion.react.css
 import fluentui.*
+import fluentui.Temp49.Companion.subtle
+import fluentui.icons.Dismiss24Regular
 import io.github.porotkin.components.UserAlbumsTable
 import io.github.porotkin.hooks.useUserAlbumsCoroutine
 import io.github.porotkin.hooks.useUsers
@@ -11,15 +13,18 @@ import react.create
 import react.dom.html.ReactHTML.div
 import react.router.useNavigate
 import react.router.useParams
+import react.useState
 import web.cssom.FlexDirection
 import web.cssom.Globals.Companion.inherit
 import web.cssom.Length.Companion.maxContent
 import web.cssom.pct
+import web.cssom.px
 
 internal val CurrentUserPage = FC {
     val navigate = useNavigate()
     val users = useUsers()
     val userAlbums = useUserAlbumsCoroutine() // useUserAlbums()
+    var sidebarOpen by useState(false)
 
     val currentUserId = useParams()["userId"]
 
@@ -30,7 +35,7 @@ internal val CurrentUserPage = FC {
         }
 
         InlineDrawer {
-            open = true
+            open = sidebarOpen
             separator = true
             css {
                 minWidth = maxContent
@@ -42,6 +47,11 @@ internal val CurrentUserPage = FC {
                     paddingTop = Insets.Common.SMALL
                 }
                 DrawerHeaderTitle {
+                    action = Button.create {
+                        appearance = subtle
+                        icon = Dismiss24Regular.create()
+                        onClick = { sidebarOpen = false }
+                    }
                     heading = Title3.create {
                         +"All Users"
                     }
@@ -73,12 +83,25 @@ internal val CurrentUserPage = FC {
                 display = web.cssom.Display.flex
                 flexDirection = FlexDirection.column
                 padding = Insets.Common.SMALL
+                gap = Insets.Common.SMALL
                 width = 100.pct
                 height = inherit
             }
 
             Title3 {
                 +"User info"
+            }
+
+            Button {
+                css {
+                    width = 150.px
+                    height = 35.px
+                    flexShrink = js("0")
+                }
+
+                onClick = { sidebarOpen = !sidebarOpen }
+
+                +"Toggle sidebar"
             }
 
             UserAlbumsTable {
