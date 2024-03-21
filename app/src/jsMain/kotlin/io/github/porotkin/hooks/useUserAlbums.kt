@@ -24,7 +24,9 @@ internal fun useUserAlbums(): UserAlbums {
             enabled = currentUserId != null
         },
     )
-    return result.data ?: emptyArray()
+    return useMemo(result.data) {
+        result.data ?: emptyArray()
+    }
 }
 
 internal fun useUserAlbumsCoroutine(): UserAlbums {

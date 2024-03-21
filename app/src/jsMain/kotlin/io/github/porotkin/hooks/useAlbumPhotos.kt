@@ -5,6 +5,7 @@ import io.github.porotkin.entities.AlbumPhotos
 import io.github.porotkin.entities.Key
 import js.objects.jso
 import js.promise.Promise
+import react.useMemo
 import tanstack.query.core.QueryKey
 import tanstack.react.query.useQuery
 import web.http.fetchAsync
@@ -21,7 +22,14 @@ internal fun useAlbumPhotos(albumId: Key): AlbumPhotosQueryResult {
             queryFn = { getAlbumPhotos(albumId) }
         },
     )
-    return AlbumPhotosQueryResult(data = result.data ?: emptyArray(), isLoading = result.isLoading)
+    val data = useMemo(result.data) {
+        result.data ?: emptyArray()
+    }
+
+    return AlbumPhotosQueryResult(
+        data = data,
+        isLoading = result.isLoading,
+    )
 }
 
 private fun getAlbumPhotos(albumId: Key): Promise<AlbumPhotos> =
