@@ -96,7 +96,7 @@ internal val CurrentUserPage = FC {
                 css {
                     width = 150.px
                     height = 35.px
-                    flexShrink = js("0")
+                    flexShrink = web.cssom.number(0.0)
                 }
 
                 onClick = { sidebarOpen = !sidebarOpen }
