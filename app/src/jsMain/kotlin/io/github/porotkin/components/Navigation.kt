@@ -32,6 +32,7 @@ internal val Navigation = FC {
             display = Display.flex
             gap = 25.px
             minHeight = 55.px
+            maxHeight = 55.px
             height = 10.pct
 
             padding = Padding(Insets.Common.SMALL, Insets.Common.MEDIUM)
