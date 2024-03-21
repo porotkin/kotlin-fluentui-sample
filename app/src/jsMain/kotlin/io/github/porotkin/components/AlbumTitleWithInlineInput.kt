@@ -11,16 +11,15 @@ import react.FC
 import react.Props
 import react.create
 import react.useState
-import tanstack.table.core.Row
 
 external interface AlbumTitleWithInlineInputProps : Props {
-    var row: Row<UserAlbum>
+    var value: ExtendedUserAlbum
 }
 
 internal val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { props ->
     val updateUserAlbum = useUpdateUserAlbum()
 
-    var value by useState(props.row.original.title)
+    var value by useState(props.value.title)
     var editMode by useState(false)
     var inputValue by useState("")
 
@@ -38,8 +37,8 @@ internal val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { pr
                 editMode = false
                 val changedUserAlbum: UserAlbum = jso {
                     title = inputValue
-                    userId = props.row.original.userId
-                    id = props.row.original.id
+                    userId = props.value.userId
+                    id = props.value.id
                 }
                 updateUserAlbum(changedUserAlbum)
             }
