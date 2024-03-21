@@ -49,10 +49,12 @@ internal val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { pr
     } else {
         +value
 
-        Button {
-            onClick = { editMode = true }
-            icon = PenRegular.create()
-            appearance = transparent
+        if (props.value.expandable) {
+            Button {
+                onClick = { editMode = true }
+                icon = PenRegular.create()
+                appearance = transparent
+            }
         }
     }
 }
