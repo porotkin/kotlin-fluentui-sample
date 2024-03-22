@@ -21,7 +21,7 @@ internal val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { pr
 
     var value by useState(props.value.title)
     var editMode by useState(false)
-    var inputValue by useState("")
+    var inputValue by useState(props.value.title)
 
     if (editMode) {
         Input {
