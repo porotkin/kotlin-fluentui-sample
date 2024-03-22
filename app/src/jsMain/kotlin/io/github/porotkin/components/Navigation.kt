@@ -56,14 +56,6 @@ internal val Navigation = FC {
                     }
                 }
             }
-            BreadcrumbDivider {}
-            BreadcrumbItem {
-                BreadcrumbButton {
-                    href = "#/generate"
-
-                    +"Generate Image"
-                }
-            }
         }
     }
 }

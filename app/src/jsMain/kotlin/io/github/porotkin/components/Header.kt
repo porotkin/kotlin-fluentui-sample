@@ -1,16 +1,17 @@
 package io.github.porotkin.components
 
 import emotion.react.css
+import fluentui.Button
 import fluentui.Title2
 import io.github.porotkin.utils.Insets
 import react.FC
 import react.dom.html.ReactHTML.div
-import web.cssom.NamedColor
-import web.cssom.pct
-import web.cssom.px
-import web.cssom.vw
+import react.router.useNavigate
+import web.cssom.*
 
 internal val Header = FC {
+    val navigate = useNavigate()
+
     div {
         css {
             width = 100.vw
@@ -18,6 +19,8 @@ internal val Header = FC {
             height = 15.pct
             backgroundColor = NamedColor.blueviolet
             paddingTop = Insets.Common.SMALL
+            display = Display.flex
+            gap = Insets.Common.MEDIUM
         }
 
         Title2 {
@@ -27,6 +30,16 @@ internal val Header = FC {
             }
 
             +"Kotlin FluentUI Sample"
+        }
+
+        Button {
+            css {
+                width = 150.px
+                height = 35.px
+            }
+            onClick = { navigate("/generate") }
+
+            +"Generate Image"
         }
     }
 }
