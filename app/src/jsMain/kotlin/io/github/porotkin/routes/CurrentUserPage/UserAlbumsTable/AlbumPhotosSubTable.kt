@@ -1,4 +1,4 @@
-package io.github.porotkin.components
+package io.github.porotkin.routes.CurrentUserPage.UserAlbumsTable
 
 import emotion.react.css
 import io.github.porotkin.entities.AlbumPhotos

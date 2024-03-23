@@ -1,8 +1,8 @@
-package io.github.porotkin.components
+package io.github.porotkin.routes.CurrentUserPage.UserAlbumsTable
 
 import emotion.react.css
-import fluentui.*
-import fluentui.icons.Dismiss24Regular
+import fluentui.Skeleton
+import fluentui.SkeletonItem
 import io.github.porotkin.entities.AlbumPhotos
 import io.github.porotkin.entities.UserAlbum
 import io.github.porotkin.hooks.useAlbumPhotos
@@ -10,7 +10,6 @@ import io.github.porotkin.utils.Insets
 import js.array.ReadonlyArray
 import js.objects.jso
 import react.*
-import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.table
 import react.dom.html.ReactHTML.tbody
@@ -81,52 +80,9 @@ internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
                 jso {
                     id = "preview"
                     accessorFn = { row, _ -> row.thumbnailUrl }
-                    cell = ColumnDefTemplate { template ->
-                        if (template.row.original.thumbnailUrl == "") {
-                            return@ColumnDefTemplate Fragment.create()
-                        }
-
-                        Fragment.create {
-                            Dialog {
-                                DialogTrigger {
-                                    disableButtonEnhancement = true
-
-                                    ReactHTML.img {
-                                        css {
-                                            cursor = Cursor.zoomIn
-                                        }
-
-                                        src = template.row.original.thumbnailUrl
-                                        alt = "preview for ${template.row.original.title}"
-                                        draggable = false
-                                    }
-                                }
-
-                                DialogSurface {
-                                    DialogBody {
-                                        DialogTitle {
-                                            action = DialogTrigger.create {
-                                                action = DialogTriggerAction.close
-
-                                                Button {
-                                                    appearance = Temp49.subtle
-                                                    icon = Dismiss24Regular.create()
-                                                }
-                                            }
-
-                                            +"Image Viewer"
-                                        }
-                                        DialogContent {
-                                            div {
-                                                SlideShow {
-                                                    values = template.row.original.albumPhotos.toSlideShowValues()
-                                                    active = template.row.original.id.toString()
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                    cell = ColumnDefTemplate {
+                        ImagePreview.create {
+                            value = it.row.original
                         }
                     }
                 },
@@ -227,7 +183,7 @@ private val SubTable = FC<SubTableProps> { props ->
                 Skeleton {
                     div {
                         css {
-                            display = web.cssom.Display.flex
+                            display = Display.flex
                             flexDirection = FlexDirection.column
                             gap = Insets.Common.SMALL
                         }

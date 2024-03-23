@@ -1,12 +1,12 @@
-package io.github.porotkin.routes
+package io.github.porotkin.routes.CurrentUserPage
 
 import emotion.react.css
 import fluentui.*
 import fluentui.Temp49.Companion.subtle
 import fluentui.icons.Dismiss24Regular
-import io.github.porotkin.components.UserAlbumsTable
 import io.github.porotkin.hooks.useUserAlbumsCoroutine
 import io.github.porotkin.hooks.useUsers
+import io.github.porotkin.routes.CurrentUserPage.UserAlbumsTable.UserAlbumsTable
 import io.github.porotkin.utils.Insets
 import react.FC
 import react.create

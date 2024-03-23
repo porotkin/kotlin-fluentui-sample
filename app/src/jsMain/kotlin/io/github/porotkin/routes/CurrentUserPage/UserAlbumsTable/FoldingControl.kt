@@ -1,4 +1,4 @@
-package io.github.porotkin.components
+package io.github.porotkin.routes.CurrentUserPage.UserAlbumsTable
 
 import fluentui.Button
 import fluentui.Temp49.Companion.secondary

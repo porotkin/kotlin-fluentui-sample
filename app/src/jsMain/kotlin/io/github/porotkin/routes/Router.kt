@@ -1,5 +1,6 @@
 package io.github.porotkin.routes
 
+import io.github.porotkin.routes.CurrentUserPage.CurrentUserPage
 import js.objects.jso
 import react.create
 import react.router.dom.createHashRouter
