@@ -2,39 +2,21 @@ package io.github.porotkin.routes
 
 import emotion.react.css
 import fluentui.Button
+import generateImage
 import io.github.porotkin.utils.Insets
-import js.import.import
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import react.FC
 import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.img
-import react.useEffectOnce
 import react.useState
 import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.Padding
 import web.cssom.px
-import web.url.URL
-import web.workers.Worker
-
-private val imageGenerator by lazy {
-    Worker(
-        URL(
-            "../../kotlin-image-generator/kotlin/kotlin-image-generator.mjs",
-            import.meta.url,
-        )
-    )
-}
 
 internal val ImageGeneratorPage = FC {
     var generatedImageUrl by useState<String?>(null)
-
-    useEffectOnce {
-        imageGenerator.onmessage = {
-            console.log("Generated image url: ${it.data}")
-
-            generatedImageUrl = it.data.toString()
-        }
-    }
 
     ReactHTML.div {
         css {
@@ -48,7 +30,11 @@ internal val ImageGeneratorPage = FC {
                 width = 200.px
             }
             onClick = {
-                imageGenerator.postMessage("generateImage")
+                MainScope().launch {
+                    generateImage().then {
+                        generatedImageUrl = it
+                    }
+                }
             }
 
             +"Generate image"
