@@ -8,4 +8,9 @@ internal object Sizes {
         val MEDIUM = 30.px
         val LARGE = 60.px
     }
+
+    object Skeleton {
+        val SMALL = 24
+        val MEDIUM = 48
+    }
 }

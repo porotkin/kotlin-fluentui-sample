@@ -7,6 +7,7 @@ import io.github.porotkin.entities.AlbumPhotos
 import io.github.porotkin.entities.UserAlbum
 import io.github.porotkin.hooks.useAlbumPhotos
 import io.github.porotkin.utils.Insets
+import io.github.porotkin.utils.Sizes
 import js.array.ReadonlyArray
 import js.objects.jso
 import react.*
@@ -190,16 +191,12 @@ private val SubTable = FC<SubTableProps> { props ->
                         }
 
                         SkeletonItem {
-                            size = 24
+                            size = Sizes.Skeleton.SMALL
                         }
-                        SkeletonItem {
-                            size = 48
-                        }
-                        SkeletonItem {
-                            size = 48
-                        }
-                        SkeletonItem {
-                            size = 48
+                        repeat(3) {
+                            SkeletonItem {
+                                size = Sizes.Skeleton.MEDIUM
+                            }
                         }
                     }
                 }
