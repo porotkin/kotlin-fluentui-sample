@@ -101,6 +101,10 @@ internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
     )
 
     div {
+        css {
+            overflow = Overflow.scroll
+        }
+
         table {
             css {
                 borderSpacing = 0.px
@@ -108,7 +112,6 @@ internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
                 whiteSpace = WhiteSpace.nowrap
                 width = 100.pct
                 textAlignLast = TextAlignLast.center
-                overflow = Overflow.scroll
                 height = inherit
             }
 
@@ -122,6 +125,7 @@ internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
                                     padding = Padding(4.px, 12.px)
                                     borderRight = Border(1.px, solid, NamedColor.gray)
                                     borderBottom = Border(1.px, solid, NamedColor.gray)
+                                    position = Position.sticky
 
                                     lastChild {
                                         borderRight = none

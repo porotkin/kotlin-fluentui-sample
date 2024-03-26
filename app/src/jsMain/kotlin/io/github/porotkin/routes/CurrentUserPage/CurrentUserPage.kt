@@ -17,6 +17,7 @@ import react.useState
 import web.cssom.FlexDirection
 import web.cssom.Globals.Companion.inherit
 import web.cssom.Length.Companion.maxContent
+import web.cssom.Overflow
 import web.cssom.pct
 import web.cssom.px
 
@@ -86,6 +87,7 @@ internal val CurrentUserPage = FC {
                 gap = Insets.Common.SMALL
                 width = 100.pct
                 height = inherit
+                overflow = Overflow.hidden
             }
 
             Title3 {
