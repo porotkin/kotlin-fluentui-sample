@@ -11,11 +11,11 @@ import tanstack.table.core.Row
 
 external interface FoldingControlProps : Props {
     var row: Row<*>
-    var getCanExpand: Boolean
+    var expandable: Boolean
 }
 
 internal val FoldingControl = FC<FoldingControlProps> { props ->
-    if (!props.getCanExpand) {
+    if (!props.expandable) {
         return@FC
     }
 

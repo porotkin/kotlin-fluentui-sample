@@ -53,7 +53,7 @@ internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
                     cell = ColumnDefTemplate {
                         FoldingControl.create {
                             row = it.row
-                            getCanExpand = it.row.original.expandable
+                            expandable = it.row.original.expandable
                         }
                     }
                 },
