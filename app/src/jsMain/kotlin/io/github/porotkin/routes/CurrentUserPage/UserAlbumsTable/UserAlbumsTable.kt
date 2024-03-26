@@ -174,11 +174,12 @@ external interface SubTableProps : Props {
 
 private val SubTable = FC<SubTableProps> { props ->
     val albumPhotosQueryResult = useAlbumPhotos(props.row.original.id)
+    val columnsCount = props.row.getVisibleCells().count()
 
     if (albumPhotosQueryResult.isLoading) {
         return@FC tr {
             td {
-                colSpan = 3
+                colSpan = columnsCount
 
                 Skeleton {
                     div {
