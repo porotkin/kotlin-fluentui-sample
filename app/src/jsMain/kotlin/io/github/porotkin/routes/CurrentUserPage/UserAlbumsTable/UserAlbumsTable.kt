@@ -218,9 +218,11 @@ private fun ReadonlyArray<UserAlbum>.toExtendedUserAlbums(): ReadonlyArray<Exten
     jso<ExtendedUserAlbum> {
         id = it.id
         title = it.title
-        thumbnailUrl = ""
-        url = ""
+        thumbnailUrl = EMPTY_URL
+        url = EMPTY_URL
         albumPhotos = arrayOf()
         expandable = true
     }
 }.toTypedArray()
+
+internal val EMPTY_URL = ""
