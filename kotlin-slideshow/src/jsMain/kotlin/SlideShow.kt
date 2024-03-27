@@ -8,7 +8,10 @@ import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h3
 import web.animations.requestAnimationFrame
 import web.dom.document
+import web.html.HTML.img
 import web.html.HTMLDivElement
+import web.html.HTMLElement
+import web.html.HtmlTagName
 
 external interface SlideShowProps : Props {
     var loop: Boolean?
@@ -32,20 +35,20 @@ val SlideShowElement = FC<SlideShowProps> { props ->
     val ref = useRef<HTMLDivElement>(null)
 
     useEffectOnce {
-        val view = document.createElement("slide-show")
+        val view = document.createElement(slideShow)
         ref.current?.appendChild(view)
 
         MainJs
             .then { Css }
             .then {
                 for (image in props.values) {
-                    val photo = document.createElement("img")
-                    with(photo.asDynamic()) {
+                    val photo = document.createElement(img).apply {
                         src = image.src
                         alt = image.alt
-                        id = image.id
+                        id = image.id.toString()
                         draggable = false
                     }
+
                     view.appendChild(photo)
                 }
             }.then {
@@ -68,3 +71,6 @@ val SlideShowElement = FC<SlideShowProps> { props ->
         }
     }
 }
+
+inline val slideShow: HtmlTagName<HTMLElement>
+    get() = HtmlTagName("slide-show")
