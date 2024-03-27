@@ -9,12 +9,27 @@ import web.messaging.MessageEvent
 import web.url.URL
 import web.workers.Worker
 
+internal const val GENERATE_IMAGE_COMMAND = "generateImage"
+internal typealias ImageSrc = String?
+
+internal fun Worker.onImageGenerated(
+    handler: ImageSrc.() -> Unit,
+): () -> Unit {
+    return addEventHandler(MessageEvent.message<String, EventTarget>()) {
+        handler(it.data)
+    }
+}
+
+internal fun Worker.generateImage() {
+    postMessage(GENERATE_IMAGE_COMMAND)
+}
+
 private external val self: Worker
 
 private fun main() {
     self.addMessageHandler {
-        if (this === "generateImage") {
-            ImageGenerator.generateImage(
+        if (this === GENERATE_IMAGE_COMMAND) {
+            JsImageGenerator.generateImage(
                 width = 800,
                 height = 600,
                 quality = 80,
@@ -29,7 +44,7 @@ private fun main() {
     }
 }
 
-internal fun Worker.addMessageHandler(
+private fun Worker.addMessageHandler(
     handler: String.() -> Unit,
 ): () -> Unit {
     return addEventHandler(MessageEvent.message<String, EventTarget>()) {
@@ -37,7 +52,7 @@ internal fun Worker.addMessageHandler(
     }
 }
 
-internal fun Worker.post(message: String) {
+private fun Worker.post(message: String) {
     postMessage(message)
 }
 
