@@ -16,7 +16,9 @@ external interface ImagePreviewProps : Props {
 
 internal val ImagePreview = FC<ImagePreviewProps> { props ->
     if (props.value.thumbnailUrl == EMPTY_URL) {
-        return@FC Fragment {}
+        Fragment()
+
+        return@FC
     }
 
     Fragment {

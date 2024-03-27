@@ -182,7 +182,7 @@ private val SubTable = FC<SubTableProps> { props ->
     val columnsCount = props.row.getVisibleCells().count()
 
     if (albumPhotosQueryResult.isLoading) {
-        return@FC tr {
+        tr {
             td {
                 colSpan = columnsCount
 
@@ -206,6 +206,8 @@ private val SubTable = FC<SubTableProps> { props ->
                 }
             }
         }
+
+        return@FC
     }
 
     AlbumPhotosSubTable {
