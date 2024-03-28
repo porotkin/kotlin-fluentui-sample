@@ -1,22 +1,34 @@
 package io.github.porotkin.routes
 
+import GENERATE_IMAGE_COMMAND
 import emotion.react.css
 import fluentui.Button
-import generateImage
 import io.github.porotkin.utils.Insets
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
+import js.import.import
 import react.FC
 import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.img
+import react.useEffectOnce
 import react.useState
 import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.Padding
 import web.cssom.px
+import web.events.EventTarget
+import web.events.addEventHandler
+import web.messaging.MessageEvent
+import web.url.URL
+import web.workers.Worker
 
 internal val ImageGeneratorPage = FC {
     var generatedImageUrl by useState<String?>(null)
+
+    useEffectOnce {
+        imageGeneratorWorker.onImageGenerated {
+            console.log("Generated image url: $this")
+            generatedImageUrl = this
+        }
+    }
 
     ReactHTML.div {
         css {
@@ -30,11 +42,7 @@ internal val ImageGeneratorPage = FC {
                 width = 200.px
             }
             onClick = {
-                MainScope().launch {
-                    generateImage().then {
-                        generatedImageUrl = it
-                    }
-                }
+                imageGeneratorWorker.generateImage()
             }
 
             +"Generate image"
@@ -50,3 +58,27 @@ internal val ImageGeneratorPage = FC {
         }
     }
 }
+
+private val imageGeneratorWorker by lazy { ImageGeneratorWorker() }
+
+private fun ImageGeneratorWorker(): Worker =
+    Worker(
+        URL(
+            "../../kotlin-image-generator/kotlin/kotlin-image-generator.mjs",
+            import.meta.url,
+        ),
+    )
+
+private fun Worker.onImageGenerated(
+    handler: ImageSrc.() -> Unit,
+): () -> Unit {
+    return addEventHandler(MessageEvent.message<String, EventTarget>()) {
+        handler(it.data)
+    }
+}
+
+private fun Worker.generateImage() {
+    postMessage(GENERATE_IMAGE_COMMAND)
+}
+
+private typealias ImageSrc = String?
