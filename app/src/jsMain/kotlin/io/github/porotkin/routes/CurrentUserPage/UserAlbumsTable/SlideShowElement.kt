@@ -1,27 +1,12 @@
 package io.github.porotkin.routes.CurrentUserPage.UserAlbumsTable
 
+import Image
+import SlideShowProps
 import io.github.porotkin.entities.AlbumPhotos
-import js.array.ReadonlyArray
 import js.import.import
 import js.objects.jso
 import react.*
 import react.dom.html.ReactHTML.div
-
-// TODO: Duplicated from kotlin-slideshow to prevent bundling
-external interface SlideShowProps : Props {
-    var loop: Boolean?
-    var active: String?
-    var autoplay: Boolean?
-    var controls: String?
-    var values: ReadonlyArray<Image>
-}
-
-// TODO: Duplicated from kotlin-slideshow to prevent bundling
-external interface Image {
-    var src: String
-    var alt: String
-    var id: Int
-}
 
 internal val SlideShowElement = lazy {
     import<ComponentModule<SlideShowProps>>("../../kotlin-slideshow/kotlin/kotlin-slideshow.mjs").then {

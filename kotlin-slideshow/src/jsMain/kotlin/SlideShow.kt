@@ -22,8 +22,8 @@ external interface SlideShowProps : Props {
 }
 
 external interface Image {
-    val src: String
-    val alt: String
+    var src: String
+    var alt: String
     var id: Int
 }
 
