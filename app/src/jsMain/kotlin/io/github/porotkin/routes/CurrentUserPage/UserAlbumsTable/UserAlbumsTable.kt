@@ -60,21 +60,11 @@ internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
                 },
                 jso {
                     id = "id"
-                    header = StringOrTemplateHeader("Album/Photo №")
+                    header = StringOrTemplateHeader("№")
                     accessorFn = { row, _ -> row.id.toString() }
                     cell = ColumnDefTemplate {
                         div.create {
-                            +it.row.original.id.toString()
-                        }
-                    }
-                },
-                jso {
-                    id = "title"
-                    header = StringOrTemplateHeader("Album/Photo Title")
-                    accessorFn = { row, _ -> row.title }
-                    cell = ColumnDefTemplate {
-                        AlbumTitleWithInlineInput.create {
-                            value = it.row.original
+                            +"${if (it.row.original.expandable) "album " else "photo "}${it.row.original.id}"
                         }
                     }
                 },
@@ -83,6 +73,16 @@ internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
                     accessorFn = { row, _ -> row.thumbnailUrl }
                     cell = ColumnDefTemplate {
                         ImagePreview.create {
+                            value = it.row.original
+                        }
+                    }
+                },
+                jso {
+                    id = "title"
+                    header = StringOrTemplateHeader("Title")
+                    accessorFn = { row, _ -> row.title }
+                    cell = ColumnDefTemplate {
+                        AlbumTitleWithInlineInput.create {
                             value = it.row.original
                         }
                     }
@@ -129,7 +129,18 @@ internal val UserAlbumsTable = FC<UserAlbumsTableProps> {
 
                                     lastChild {
                                         borderRight = none
-                                        width = 175.px
+                                    }
+
+                                    firstChild {
+                                        width = Sizes.TableColumn.SMALL
+                                    }
+
+                                    nthChild("2") {
+                                        width = Sizes.TableColumn.MEDIUM
+                                    }
+
+                                    nthChild("3") {
+                                        width = Sizes.TableColumn.LARGE
                                     }
                                 }
 

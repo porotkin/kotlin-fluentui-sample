@@ -13,4 +13,10 @@ internal object Sizes {
         val SMALL = 24
         val MEDIUM = 48
     }
+
+    object TableColumn {
+        val SMALL = 25.px
+        val MEDIUM = 50.px
+        val LARGE = 175.px
+    }
 }
