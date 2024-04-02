@@ -1,0 +1,91 @@
+{
+  "input": [
+    "<nodeModules>/@fluentui/*/dist/index.d.ts"
+  ],
+  "libraryName": "fluentui",
+  "libraryNameOutputPrefix": true,
+  "granularity": "top-level",
+  "output": "src/jsMain/kotlin",
+  "ignoreInput": [
+    "@fluentui/react-icons"
+  ],
+  "moduleNameMapper": {
+    ".*": "fluentui"
+  },
+  "packageNameMapper": {
+    "/dist": "",
+    "/lib": "",
+    "area": "",
+    "ter": "",
+    "/keyboard-keys": "",
+    "/priority-overflow": "",
+    "/tokens": "",
+    "/react-accordion": "",
+    "/react-alert": "",
+    "/react-aria": "",
+    "/react-avatar": "",
+    "/react-badge": "",
+    "/react-button": "",
+    "/react-breadcrumb": "",
+    "/react-card": "",
+    "/react-checkbox": "",
+    "/react-combobox": "",
+    "/react-components": "",
+    "/react-context-selector": "",
+    "/react-dialog": "",
+    "/react-divider": "",
+    "/react-drawer": "",
+    "/react-field": "",
+    "/react-icons": "",
+    "/react-image": "",
+    "/react-infobutton": "",
+    "/react-infolabel": "",
+    "/react-input": "",
+    "/react-jsx-runtime": "",
+    "/react-label": "",
+    "/react-link": "",
+    "/react-menu": "",
+    "/react-message-bar": "",
+    "/react-motion-preview": "",
+    "/react-overflow": "",
+    "/react-persona": "",
+    "/react-popover": "",
+    "/react-portal": "",
+    "/react-positioning": "",
+    "/react-progress": "",
+    "/react-provider": "",
+    "/react-radio": "",
+    "/react-select": "",
+    "/react-shared-contexts": "",
+    "/react-skeleton": "",
+    "/react-slider": "",
+    "/react-spinbutton": "",
+    "/react-spinner": "",
+    "/react-switch": "",
+    "/react-table": "",
+    "/react-tabs": "",
+    "/react-tabster": "",
+    "/react-tags": "",
+    "/react-text": "",
+    "/react-textarea": "",
+    "/react-theme": "",
+    "/react-toast": "",
+    "/react-toolbar": "",
+    "/react-tooltip": "",
+    "/react-tree": "",
+    "/react-utilities": "",
+    "/react-virtualizer": ""
+  },
+  "importMapper": {
+    "react": {
+      "\\*": "",
+      ".+": ""
+    }
+  },
+  "compilerOptions": {
+    "lib": [
+      "lib.esnext.d.ts",
+      "lib.dom.d.ts"
+    ]
+  }
+}

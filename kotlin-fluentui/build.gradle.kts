@@ -3,6 +3,7 @@ plugins {
     id("io.github.turansky.kfc.wrappers")
 
     id("io.github.turansky.seskar")
+    id("io.github.sgrishchenko.karakum")
 }
 
 dependencies {
