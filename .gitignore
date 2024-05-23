@@ -8,3 +8,6 @@ build/
 *.iml
 
 webpack.config.d/
+
+# Kotlin 2
+.kotlin
