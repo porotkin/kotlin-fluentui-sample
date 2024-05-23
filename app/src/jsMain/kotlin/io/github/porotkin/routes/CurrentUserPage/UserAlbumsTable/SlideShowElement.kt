@@ -3,13 +3,13 @@ package io.github.porotkin.routes.CurrentUserPage.UserAlbumsTable
 import Image
 import SlideShowProps
 import io.github.porotkin.entities.AlbumPhotos
-import js.import.import
+import js.import.importAsync
 import js.objects.jso
 import react.*
 import react.dom.html.ReactHTML.div
 
 internal val SlideShowElement = lazy {
-    import<ComponentModule<SlideShowProps>>("../../kotlin-slideshow/kotlin/kotlin-slideshow.mjs").then {
+    importAsync<ComponentModule<SlideShowProps>>("../../kotlin-slideshow/kotlin/kotlin-slideshow.mjs").then {
         return@then getDefaultizedSlideShow(it)
     }
 }

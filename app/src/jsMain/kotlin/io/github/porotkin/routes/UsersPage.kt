@@ -16,6 +16,7 @@ import react.router.useNavigate
 import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.fr
+import web.events.EventHandler
 
 internal val UsersPage = FC {
     val users = useUsers()
@@ -74,7 +75,7 @@ internal val UsersPage = FC {
                 }
                 CardFooter {
                     Button {
-                        onClick = { navigate("/${user.id}") }
+                        onClick = EventHandler { navigate("/${user.id}") }
 
                         +"Go to User Page"
                     }

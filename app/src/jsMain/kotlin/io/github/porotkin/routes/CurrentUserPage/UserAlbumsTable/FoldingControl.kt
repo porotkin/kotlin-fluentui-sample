@@ -8,6 +8,7 @@ import react.FC
 import react.Props
 import react.create
 import tanstack.table.core.Row
+import web.events.EventHandler
 
 external interface FoldingControlProps : Props {
     var row: Row<*>
@@ -20,7 +21,7 @@ internal val FoldingControl = FC<FoldingControlProps> { props ->
     }
 
     Button {
-        onClick = { props.row.toggleExpanded(!props.row.getIsExpanded()) }
+        onClick = EventHandler { props.row.toggleExpanded(!props.row.getIsExpanded()) }
         icon = if (props.row.getIsExpanded()) ChevronDownRegular.create() else ChevronRightRegular.create()
         appearance = secondary
     }

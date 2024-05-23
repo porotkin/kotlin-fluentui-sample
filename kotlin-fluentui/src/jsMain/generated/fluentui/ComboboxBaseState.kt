@@ -5,7 +5,6 @@ package fluentui
 
 import react.Dispatch
 import react.MutableRefObject
-import web.html.HTMLElement
 import web.uievents.MouseEvent
 
 // unhandled import: ActiveDescendantContextValue from "@fluentui/react-aria" 
@@ -62,5 +61,5 @@ sealed external interface ComboboxBaseState : Required<ComboboxBaseProps>, Combo
     fun setHasFocus(hasFocus: Boolean): Unit
     fun setOpen(event: ComboboxBaseOpenEvents, newState: Boolean): Unit
     fun setValue(newValue: String?): Unit
-    var onOptionClick: (e: MouseEvent<HTMLElement>) -> Unit
+    var onOptionClick: (e: MouseEvent) -> Unit
 }

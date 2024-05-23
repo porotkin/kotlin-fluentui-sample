@@ -4,7 +4,6 @@
 package fluentui
 
 import web.events.Event
-import web.html.HTMLInputElement
 
 // unhandled import: ComponentProps from "@fluentui/react-utilities" 
 // unhandled import: ComponentState from "@fluentui/react-utilities" 
@@ -45,7 +44,7 @@ sealed external interface CheckboxProps : CheckboxSlots {
     /**
      * Callback to be called when the checked state value changes.
      */
-    var onChange: ((ev: Event<HTMLInputElement>, data: CheckboxOnChangeData) -> Unit)?
+    var onChange: ((ev: Event, data: CheckboxOnChangeData) -> Unit)?
 
     /**
      * The shape of the checkbox indicator.

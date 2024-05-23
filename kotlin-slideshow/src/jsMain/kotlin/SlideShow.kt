@@ -1,7 +1,7 @@
 @file:OptIn(ExperimentalJsExport::class)
 
 import js.array.ReadonlyArray
-import js.import.import
+import js.import.importAsync
 import js.promise.catch
 import react.*
 import react.dom.html.ReactHTML.div
@@ -27,8 +27,8 @@ external interface Image {
     var id: Int
 }
 
-internal val MainJs = import<ComponentModule<*>>("@porotkin/slide-show")
-internal val Css = import<ComponentModule<*>>("@porotkin/slide-show/build/slide-show.css")
+internal val MainJs = importAsync<ComponentModule<*>>("@porotkin/slide-show")
+internal val Css = importAsync<ComponentModule<*>>("@porotkin/slide-show/build/slide-show.css")
 
 @JsExport()
 val SlideShowElement = FC<SlideShowProps> { props ->

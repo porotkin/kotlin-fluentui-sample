@@ -34,5 +34,5 @@ internal fun useAlbumPhotos(albumId: Key): AlbumPhotosQueryResult {
 
 private fun getAlbumPhotos(albumId: Key): Promise<AlbumPhotos> =
     fetchAsync("https://jsonplaceholder.typicode.com/albums/$albumId/photos")
-        .then { it.json() }
+        .then { it.jsonAsync() }
         .then { it.unsafeCast<AlbumPhotos>() }

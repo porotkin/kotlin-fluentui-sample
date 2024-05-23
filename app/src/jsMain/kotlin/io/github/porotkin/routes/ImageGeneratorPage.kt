@@ -14,6 +14,7 @@ import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.Padding
 import web.cssom.px
+import web.events.EventHandler
 import web.events.EventTarget
 import web.events.addEventHandler
 import web.messaging.MessageEvent
@@ -41,7 +42,7 @@ internal val ImageGeneratorPage = FC {
             css {
                 width = 200.px
             }
-            onClick = {
+            onClick = EventHandler {
                 imageGeneratorWorker.generateImage()
             }
 

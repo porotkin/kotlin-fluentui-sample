@@ -35,4 +35,4 @@ private fun updateUserAlbum(value: UserAlbum): Promise<UserAlbum> =
             method = "PUT"
             body = BodyInit(JSON.stringify(value))
         }
-    ).then { it.json() }.then { it.unsafeCast<UserAlbum>() }
+    ).then { it.jsonAsync() }.then { it.unsafeCast<UserAlbum>() }

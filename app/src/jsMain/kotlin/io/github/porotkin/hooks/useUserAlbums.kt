@@ -52,5 +52,5 @@ internal fun useUserAlbumsCoroutine(): UserAlbums {
 
 private fun getUserAlbums(userId: String): Promise<UserAlbums> =
     fetchAsync("https://jsonplaceholder.typicode.com/users/$userId/albums")
-        .then { it.json() }
+        .then { it.jsonAsync() }
         .then { it.unsafeCast<UserAlbums>() }

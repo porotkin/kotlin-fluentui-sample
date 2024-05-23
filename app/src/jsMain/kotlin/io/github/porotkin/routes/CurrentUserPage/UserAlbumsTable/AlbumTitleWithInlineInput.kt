@@ -11,6 +11,7 @@ import react.FC
 import react.Props
 import react.create
 import react.useState
+import web.events.EventHandler
 
 external interface AlbumTitleWithInlineInputProps : Props {
     var value: ExtendedUserAlbum
@@ -26,13 +27,13 @@ internal val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { pr
     if (editMode) {
         Input {
             defaultValue = value
-            onChange = {
-                inputValue = it.getValueFromEvent()
+            onChange = EventHandler { event ->
+                inputValue = event.getValueFromEvent()
             }
         }
 
         Button {
-            onClick = {
+            onClick = EventHandler {
                 value = inputValue
                 editMode = false
                 val changedUserAlbum: UserAlbum = jso {
@@ -51,7 +52,7 @@ internal val AlbumTitleWithInlineInput = FC<AlbumTitleWithInlineInputProps> { pr
 
         if (props.value.expandable) {
             Button {
-                onClick = { editMode = true }
+                onClick = EventHandler { editMode = true }
                 icon = PenRegular.create()
                 appearance = transparent
             }

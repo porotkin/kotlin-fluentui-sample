@@ -16,7 +16,7 @@ import web.events.EventHandler
 
 
 sealed external interface ButtonProps : ButtonSlots, PropsWithChildren, PropsWithClassName {
-    var onClick: EventHandler<*>
+    var onClick: EventHandler<*, *>
 
     /**
      * A button can have its content and borders styled for greater emphasis or to be subtle.

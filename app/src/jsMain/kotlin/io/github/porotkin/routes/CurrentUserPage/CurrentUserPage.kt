@@ -20,6 +20,7 @@ import web.cssom.Length.Companion.maxContent
 import web.cssom.Overflow
 import web.cssom.pct
 import web.cssom.px
+import web.events.EventHandler
 
 internal val CurrentUserPage = FC {
     val navigate = useNavigate()
@@ -51,7 +52,7 @@ internal val CurrentUserPage = FC {
                     action = Button.create {
                         appearance = subtle
                         icon = Dismiss24Regular.create()
-                        onClick = { sidebarOpen = false }
+                        onClick = EventHandler { sidebarOpen = false }
                     }
                     heading = Title3.create {
                         +"All Users"
@@ -70,7 +71,7 @@ internal val CurrentUserPage = FC {
                     for (user in users) {
                         Card {
                             selected = user.id.toString() == currentUserId
-                            onClick = { navigate("/${user.id}") }
+                            onClick = EventHandler { navigate("/${user.id}") }
 
                             +user.name
                         }
@@ -101,7 +102,7 @@ internal val CurrentUserPage = FC {
                     flexShrink = web.cssom.number(0.0)
                 }
 
-                onClick = { sidebarOpen = !sidebarOpen }
+                onClick = EventHandler { sidebarOpen = !sidebarOpen }
 
                 +"Toggle sidebar"
             }

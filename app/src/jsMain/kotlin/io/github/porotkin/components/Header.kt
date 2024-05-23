@@ -8,6 +8,7 @@ import react.FC
 import react.dom.html.ReactHTML.div
 import react.router.useNavigate
 import web.cssom.*
+import web.events.EventHandler
 
 internal val Header = FC {
     val navigate = useNavigate()
@@ -37,7 +38,7 @@ internal val Header = FC {
                 width = 150.px
                 height = 35.px
             }
-            onClick = { navigate("/generate") }
+            onClick = EventHandler { navigate("/generate") }
 
             +"Generate Image"
         }
