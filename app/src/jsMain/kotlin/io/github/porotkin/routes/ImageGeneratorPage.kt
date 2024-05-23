@@ -65,7 +65,7 @@ private val imageGeneratorWorker by lazy { ImageGeneratorWorker() }
 private fun ImageGeneratorWorker(): Worker =
     Worker(
         URL(
-            "../../kotlin-image-generator/kotlin/kotlin-image-generator.mjs",
+            "kotlin-image-generator",
             import.meta.url,
         ),
     )

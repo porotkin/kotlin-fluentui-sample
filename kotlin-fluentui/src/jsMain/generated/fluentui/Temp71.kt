@@ -16,7 +16,6 @@ package fluentui
 // unhandled import: ToggleButtonState from "@fluentui/react-button" 
 
 
-@Suppress("NESTED_CLASS_IN_EXTERNAL_INTERFACE")
 @seskar.js.JsVirtual
 sealed external interface Temp71 {
     companion object {

@@ -11,7 +11,6 @@ package fluentui
 // unhandled import: TriggerProps from "@fluentui/react-utilities" 
 
 
-@Suppress("NESTED_CLASS_IN_EXTERNAL_INTERFACE")
 @seskar.js.JsVirtual
 sealed external interface Temp44 {
     companion object {

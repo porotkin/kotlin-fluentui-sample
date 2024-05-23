@@ -17,7 +17,6 @@ package fluentui
 // unhandled import: TooltipVisibilityContextValue_unstable from "@fluentui/react-shared-contexts" 
 
 
-@Suppress("NESTED_CLASS_IN_EXTERNAL_INTERFACE")
 @seskar.js.JsVirtual
 sealed external interface Temp117 {
     companion object {

@@ -63,11 +63,6 @@ external val truncateBreadcrumbLongName: (content: String, maxLength: Double? /*
 external val truncateBreadcrumLongTooltip: (content: String, maxLength: Double? /* use undefined for default */) -> String
 
 /**
- * Apply styling to the BreadcrumbButton slots based on the state
- */
-external val useBreadcrumbButtonStyles_unstable: (state: BreadcrumbButtonState) -> BreadcrumbButtonState
-
-/**
  * @internal
  */
 external val useBreadcrumbContext_unstable: () -> Required<BreadcrumbProps>

@@ -10,7 +10,6 @@ package fluentui
 // unhandled import: OverflowItemEntry from "@fluentui/priority-overflow" 
 
 
-@Suppress("NESTED_CLASS_IN_EXTERNAL_INTERFACE")
 @seskar.js.JsVirtual
 sealed external interface Temp131 {
     companion object {

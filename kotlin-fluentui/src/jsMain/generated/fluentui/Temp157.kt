@@ -18,7 +18,6 @@ package fluentui
 // unhandled import: useModalAttributes from "@fluentui/react-tabster" 
 
 
-@Suppress("NESTED_CLASS_IN_EXTERNAL_INTERFACE")
 @seskar.js.JsVirtual
 sealed external interface Temp157 {
     companion object {

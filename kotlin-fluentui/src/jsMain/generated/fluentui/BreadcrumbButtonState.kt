@@ -10,11 +10,4 @@ package fluentui
 // unhandled import: ComponentState from "@fluentui/react-utilities" 
 // unhandled import: ForwardRefComponent from "@fluentui/react-utilities" 
 // unhandled import: Slot from "@fluentui/react-utilities" 
-// unhandled import: SlotClassNames from "@fluentui/react-utilities" 
-
-/**
- * State used in rendering BreadcrumbButton
- */
-
-sealed external interface BreadcrumbButtonState : ComponentState<BreadcrumbButtonSlots>, ButtonState,
-    BreadcrumbButtonProps
+// unhandled import: SlotClassNames from "@fluentui/react-utilities"

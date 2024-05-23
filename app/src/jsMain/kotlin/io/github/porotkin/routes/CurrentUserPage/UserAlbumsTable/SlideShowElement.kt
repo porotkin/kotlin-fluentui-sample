@@ -9,7 +9,7 @@ import react.*
 import react.dom.html.ReactHTML.div
 
 internal val SlideShowElement = lazy {
-    importAsync<ComponentModule<SlideShowProps>>("../../kotlin-slideshow/kotlin/kotlin-slideshow.mjs").then {
+    importAsync<ComponentModule<SlideShowProps>>("kotlin-slideshow").then {
         return@then getDefaultizedSlideShow(it)
     }
 }
