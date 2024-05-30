@@ -5,13 +5,15 @@ plugins {
     id("io.github.turansky.seskar")
 }
 
-dependencies {
-    jsMainImplementation("io.github.turansky.seskar:seskar-core:2.42.0")
+val seskarVersion = extra["seskar.version"] as String
 
+dependencies {
     jsMainImplementation(wrappers("react-core"))
     jsMainImplementation(wrappers("react"))
     jsMainImplementation(wrappers("browser"))
     jsMainImplementation(wrappers("js"))
+
+    jsMainImplementation("io.github.turansky.seskar:seskar-core:$seskarVersion")
 }
 
 kotlin {
